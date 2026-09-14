@@ -1,0 +1,883 @@
+/* ==========================================================================
+   Faq Portfolio - Modern AI Engineer & Researcher Hero
+   Optimized for 16:10 Laptop Viewport (1-Screen Fit, No Scroll),
+   Bottom-Aligned PORTFOLIO & Contact Me, Persistent Rail Nav, & Full Photo Card.
+   ========================================================================== */
+
+/* --- 1. DESIGN TOKENS & VARIABLES --- */
+:root {
+  --bg-canvas: #ffffff;
+  --card-bg: #bcc5cd;              /* Sleek Slate Gray from heroprototype.png */
+  --card-bg-hover: #b4bfc7;
+  --card-chip-bg: rgba(255, 255, 255, 0.7);
+  --card-chip-hover: #ffffff;
+
+  --text-pure-black: #000000;
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --text-muted: #64748b;
+
+  --accent-indigo: #4f46e5;
+  --accent-emerald: #10b981;
+
+  --shadow-subtle: 0 4px 20px rgba(0, 0, 0, 0.04);
+  --shadow-card: 0 10px 28px rgba(15, 23, 42, 0.06);
+
+  --radius-card: 32px;
+  --radius-pill: 999px;
+
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-jp: 'Noto Sans JP', 'Plus Jakarta Sans', sans-serif;
+}
+
+/* Base Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  height: 100%;
+}
+
+/* 
+ * KUNCI 1: Fit 1 Layar Laptop 16:10 Tanpa Fullscreen & Tanpa Scroll 
+ * Menggunakan height: 100vh / 100dvh dengan overflow: hidden pada layar desktop
+ */
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-canvas);
+  color: var(--text-pure-black);
+  line-height: 1.35;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  height: 100vh;
+  height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(12px, 1.8vh, 24px) clamp(16px, 2.5vw, 36px);
+  overflow: hidden;
+}
+
+body.lang-jp {
+  font-family: var(--font-jp);
+}
+
+/* ==========================================================================
+   2. MOBILE FIXED HEADER (Solusi 1: Flag Switcher Melayang di Layar Ponsel)
+   ========================================================================== */
+.mobile-header {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  padding: 0 16px;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1000;
+  box-shadow: var(--shadow-subtle);
+}
+
+.mobile-logo {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.logo-mark {
+  font-size: 1.3rem;
+  font-weight: 900;
+  color: var(--text-pure-black);
+  letter-spacing: -0.04em;
+}
+
+.logo-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ==========================================================================
+   3. HERO CANVAS (Rasio Seimbang 16:10 Laptop)
+   ========================================================================== */
+.hero-canvas {
+  width: 100%;
+  max-width: 1720px;
+  height: 100%;
+  max-height: 100%;
+  display: flex;
+  align-items: stretch;
+  gap: clamp(16px, 2vw, 36px);
+}
+
+/* --- A. Vertical Rail Navigation (Dipertahankan di Semua Ukuran Layar) --- */
+.hero-rail {
+  width: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  user-select: none;
+}
+
+.rail-items {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 88%;
+  gap: clamp(36px, 6vh, 64px);
+}
+
+.rail-item {
+  color: var(--text-pure-black);
+  font-size: clamp(0.95rem, 1.15vw, 1.15rem);
+  font-weight: 600;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transform: rotate(-90deg);
+  transform-origin: center center;
+  white-space: nowrap;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  opacity: 0.85;
+}
+
+.rail-item:hover {
+  opacity: 1;
+  color: var(--accent-indigo);
+  transform: rotate(-90deg) scale(1.1);
+}
+
+.rail-item.active {
+  opacity: 1;
+  font-weight: 800;
+}
+
+/* --- B. Main 2-Column Bento Grid (Strict 50/50 Split dengan minmax(0, 1fr)) --- */
+.hero-bento-grid {
+  flex: 1;
+  height: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(20px, 2.5vw, 40px);
+  align-items: stretch;
+  min-height: 0;
+  min-width: 0;
+}
+
+/* ==========================================================================
+   4. KOLOM KIRI: About Me Notch Card + Giant "PORTFOLIO"
+   ========================================================================== */
+.left-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  min-height: 0;
+  min-width: 0;
+}
+
+/* Wrapper Kartu About Me (Bentuk Notch Kiri Atas) */
+.about-card-container {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+
+/* SVG Background Shape */
+.card-shape-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Label "About Me" yang duduk di ruang notch kiri atas */
+.about-label-notch {
+  position: absolute;
+  top: clamp(8px, 1.5vh, 18px);
+  left: clamp(20px, 2.5vw, 36px);
+  z-index: 10;
+}
+
+.section-heading {
+  font-size: clamp(1.8rem, 2.6vw, 3.2rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--text-pure-black);
+  line-height: 1;
+}
+
+/* --- FULL PHOTO BACKGROUND WRAPPER --- */
+.about-photo-wrapper {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  clip-path: url(#aboutCardClip);
+  -webkit-clip-path: url(#aboutCardClip);
+  overflow: hidden;
+}
+
+.about-profile-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  display: block;
+}
+
+/* Fallback jika foto belum ditaruh di assets/profile.jpg */
+.photo-fallback-screen {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(145deg, #c5ced5, #b2bcc5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.silhouette-svg {
+  width: clamp(120px, 18vh, 180px);
+  height: auto;
+  opacity: 0.35;
+  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.1));
+}
+
+.photo-instruction-hint {
+  position: absolute;
+  top: clamp(75px, 11vh, 100px);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.photo-instruction-hint code {
+  font-family: var(--font-mono);
+  color: var(--accent-indigo);
+}
+
+/* Gradient Overlay Bawah (Membuat teks selalu tajam dan kontras di atas foto) */
+.photo-gradient-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.82) 0%,
+    rgba(0, 0, 0, 0.45) 42%,
+    rgba(0, 0, 0, 0.05) 70%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+/* Konten Teks Identitas di Bagian Bawah Kartu */
+.about-card-content {
+  position: relative;
+  z-index: 5;
+  padding: clamp(18px, 2.8vh, 36px) clamp(22px, 3vw, 40px);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.identity-block {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(6px, 1vh, 10px);
+}
+
+.person-name {
+  font-size: clamp(2.2rem, 3.4vw, 3.8rem);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  color: #ffffff;
+  line-height: 1.1;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+.person-tagline {
+  font-size: clamp(0.95rem, 1.3vw, 1.35rem);
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.35;
+  max-width: 520px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.focus-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.tag-chip {
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+/* Action Button: Download My Resume */
+.card-action-row {
+  margin-top: clamp(6px, 1vh, 12px);
+  display: flex;
+  align-items: center;
+}
+
+.resume-download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #ffffff;
+  color: var(--text-primary);
+  font-size: clamp(0.78rem, 0.95vw, 0.88rem);
+  font-weight: 800;
+  text-decoration: none;
+  padding: clamp(7px, 1.1vh, 10px) clamp(16px, 1.4vw, 22px);
+  border-radius: var(--radius-pill);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.resume-download-btn:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  background: #f8fafc;
+  color: var(--accent-indigo);
+}
+
+.download-icon {
+  transition: transform 0.2s ease;
+}
+
+.resume-download-btn:hover .download-icon {
+  transform: translateY(2px);
+}
+
+/* 
+ * KUNCI 2: Batas Bawah "PORTFOLIO" Tepat Sejajar Batas Bawah Contact Me
+ * Tinggi container dikunci sama dan flex-align diset ke flex-end
+ */
+.giant-portfolio-wrapper {
+  flex: 0 0 auto;
+  height: clamp(64px, 9.5vh, 88px);
+  display: flex;
+  align-items: flex-end; /* Memastikan huruf menempel tepat di baseline bawah */
+  padding-bottom: 2px;
+}
+
+.giant-portfolio-text {
+  font-size: clamp(3.2rem, 5.8vw, 6.8rem);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  color: var(--text-pure-black);
+  line-height: 0.78; /* Menghilangkan padding font bawaan agar pas di garis bawah */
+  text-transform: uppercase;
+  margin: 0;
+  padding: 0;
+}
+
+/* ==========================================================================
+   5. KOLOM KANAN: Tools, Sliding Banner, & Contact Pill
+   ========================================================================== */
+.right-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  min-height: 0;
+  min-width: 0;
+  gap: clamp(14px, 2vh, 22px);
+}
+
+/* --- A. KARTU ATAS: Tools & Stack dengan Notch Dudukan Bendera --- */
+.tools-card-container {
+  position: relative;
+  flex: 0 0 auto;
+  height: clamp(135px, 19vh, 175px);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: var(--shadow-card);
+  min-width: 0;
+  width: 100%;
+}
+
+.tools-header-bar {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: clamp(10px, 1.6vh, 16px) clamp(16px, 2vw, 28px) 4px;
+}
+
+.tools-title-tab {
+  font-size: clamp(1.3rem, 1.7vw, 2rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--text-pure-black);
+  line-height: 1;
+}
+
+/* Kapsul 3 Bahasa (Docked di Notch Kanan Atas) */
+.lang-capsule {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  padding: 6px 12px;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+.lang-btn {
+  background: transparent;
+  border: 2px solid transparent;
+  border-radius: 50%;
+  padding: 2px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.lang-btn:hover {
+  transform: scale(1.15);
+}
+
+.lang-btn.active {
+  border-color: var(--text-pure-black);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+
+.flag-icon {
+  width: clamp(22px, 2.4vh, 28px);
+  height: clamp(22px, 2.4vh, 28px);
+  border-radius: 50%;
+  display: block;
+}
+
+/* Konten Infinite Running Marquee (Satu Jalur Ramping & Elegan) */
+.tools-card-content {
+  position: relative;
+  z-index: 3;
+  padding: 0 4px clamp(10px, 1.8vh, 18px);
+  overflow: hidden;
+  min-width: 0;
+  width: 100%;
+}
+
+.marquee-wrapper {
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+  min-width: 0;
+  mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+}
+
+.marquee-row {
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  min-width: 0;
+}
+
+.marquee-track {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: max-content;
+  will-change: transform;
+  animation: scrollMarquee 32s linear infinite;
+}
+
+.marquee-row:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes scrollMarquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.tech-pill {
+  background: var(--card-chip-bg);
+  padding: clamp(6px, 1vh, 9px) clamp(12px, 1.3vw, 16px);
+  border-radius: 10px;
+  font-size: clamp(0.78rem, 0.95vw, 0.88rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.04);
+  transition: all 0.2s ease;
+  user-select: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.tech-pill:hover {
+  background: #ffffff;
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  color: var(--accent-indigo);
+}
+
+/* --- B. KARTU TENGAH: Sliding Banner Project --- */
+.project-banner-container {
+  background: var(--card-bg);
+  border-radius: var(--radius-card);
+  padding: clamp(16px, 2.5vh, 28px) clamp(20px, 2.5vw, 34px);
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: var(--shadow-card);
+  position: relative;
+  overflow: hidden;
+}
+
+.banner-top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.banner-main-title {
+  font-size: clamp(1.4rem, 1.9vw, 2.2rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--text-pure-black);
+  line-height: 1.1;
+}
+
+.carousel-nav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.carousel-btn {
+  width: clamp(28px, 3.5vh, 34px);
+  height: clamp(28px, 3.5vh, 34px);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.7);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text-pure-black);
+  transition: all 0.2s ease;
+}
+
+.carousel-btn:hover {
+  background: #ffffff;
+  transform: scale(1.1);
+}
+
+.carousel-indicators {
+  display: flex;
+  gap: 6px;
+}
+
+.c-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.c-dot.active {
+  width: 20px;
+  border-radius: var(--radius-pill);
+  background: var(--text-pure-black);
+}
+
+/* Slide Stage */
+.banner-stage {
+  position: relative;
+  margin-top: clamp(6px, 1vh, 12px);
+}
+
+.project-slide {
+  display: none;
+  animation: fadeInSlide 0.35s ease forwards;
+}
+
+.project-slide.active {
+  display: block;
+}
+
+@keyframes fadeInSlide {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.slide-info {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(6px, 1vh, 10px);
+}
+
+.category-badge {
+  align-self: flex-start;
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: rgba(255, 255, 255, 0.75);
+  padding: 3px 10px;
+  border-radius: 6px;
+  color: var(--text-primary);
+}
+
+.project-heading {
+  font-size: clamp(1.2rem, 1.5vw, 1.75rem);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  color: var(--text-pure-black);
+  line-height: 1.2;
+}
+
+.project-summary {
+  font-size: clamp(0.85rem, 1vw, 1rem);
+  color: var(--text-secondary);
+  line-height: 1.45;
+  max-width: 620px;
+}
+
+.tech-tags-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 2px;
+}
+
+.tech-tags-row span {
+  font-size: 0.72rem;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 3px 8px;
+  border-radius: 6px;
+  color: var(--text-primary);
+}
+
+/* --- C. KARTU BAWAH: CONTACT ME: Full-Width Pill (Tinggi & Posisi Sejajar PORTFOLIO) --- */
+.contact-pill-container {
+  background: var(--card-bg);
+  border-radius: var(--radius-pill);
+  flex: 0 0 auto;
+  height: clamp(64px, 9.5vh, 88px);
+  padding: 0 clamp(20px, 2.5vw, 38px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: var(--shadow-card);
+  transition: transform 0.25s ease;
+}
+
+.contact-pill-container:hover {
+  transform: translateY(-2px);
+}
+
+.contact-heading {
+  font-size: clamp(1.2rem, 1.6vw, 1.9rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  color: var(--text-pure-black);
+  line-height: 1;
+}
+
+.social-links-group {
+  display: flex;
+  align-items: center;
+  gap: clamp(10px, 1.2vw, 16px);
+}
+
+.social-icon-btn {
+  width: clamp(38px, 5vh, 48px);
+  height: clamp(38px, 5vh, 48px);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: var(--text-pure-black);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.social-icon-btn:hover {
+  transform: translateY(-2px) scale(1.1);
+  background: #ffffff;
+}
+
+.social-icon-btn.github:hover {
+  color: #0f172a;
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.25);
+}
+
+.social-icon-btn.whatsapp:hover {
+  color: #25d366;
+  box-shadow: 0 6px 16px rgba(37, 211, 102, 0.35);
+}
+
+.social-icon-btn.linkedin:hover {
+  color: #0a66c2;
+  box-shadow: 0 6px 16px rgba(10, 102, 194, 0.35);
+}
+
+/* ==========================================================================
+   6. RESPONSIVE BREAKPOINTS (Mobile & Tablet)
+   ========================================================================== */
+
+/* --- Mobile Phone (< 860px) --- */
+@media (max-width: 860px) {
+  /* Di ponsel, biarkan halaman bisa di-scroll vertikal secara natural */
+  body {
+    height: auto;
+    min-height: 100vh;
+    overflow-y: auto;
+    padding: 76px 12px 32px;
+  }
+
+  /* Aktifkan Mobile Header */
+  .mobile-header {
+    display: flex;
+  }
+
+  .hero-canvas {
+    height: auto;
+    gap: 12px;
+  }
+
+  /* 
+   * KUNCI 3: Navbar Samping Tetap Dipertahankan Saat Responsif! 
+   * Tetap berdiri di sisi kiri sebagai vertical rail ramping yang rapi
+   */
+  .hero-rail {
+    display: flex;
+    width: 36px;
+    padding: 16px 0;
+  }
+
+  .rail-items {
+    gap: 32px;
+  }
+
+  .rail-item {
+    font-size: 0.85rem;
+  }
+
+  /* Bento Grid menjadi 1 kolom vertikal stack */
+  .hero-bento-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    height: auto;
+  }
+
+  .left-column, .right-column {
+    height: auto;
+    gap: 16px;
+  }
+
+  /* Pindahkan Kapsul Bahasa ke Header Mobile */
+  .mobile-lang-anchor .lang-capsule {
+    box-shadow: none;
+    padding: 3px 6px;
+    gap: 6px;
+  }
+
+  .mobile-lang-anchor .flag-icon {
+    width: 22px;
+    height: 22px;
+  }
+
+  .about-card-container {
+    min-height: 420px;
+  }
+
+  .about-card-content {
+    padding: 20px 20px 24px;
+  }
+
+  .giant-portfolio-wrapper {
+    height: auto;
+    padding: 6px 0;
+  }
+
+  .giant-portfolio-text {
+    font-size: clamp(2.8rem, 11vw, 4.2rem);
+    line-height: 0.9;
+  }
+
+  .tools-card-container {
+    height: auto;
+  }
+
+  .tools-header-bar {
+    padding: 16px 20px 6px;
+  }
+
+  .tools-card-content {
+    padding: 6px 20px 20px;
+  }
+
+  .project-banner-container {
+    height: auto;
+    min-height: 300px;
+    padding: 20px;
+  }
+
+  .contact-pill-container {
+    height: auto;
+    padding: 14px 20px;
+    border-radius: 20px;
+  }
+}

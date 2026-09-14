@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Faq | AI Engineer & Researcher Portfolio</title>
+  
+  <!-- Meta & SEO -->
+  <meta name="description" content="Portfolio of Faq - AI Engineer & Researcher specializing in building and deploying LLM-powered applications.">
+  <meta name="author" content="Faq">
+
+  <!-- Google Fonts: Plus Jakarta Sans, JetBrains Mono, Noto Sans JP -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600;700&family=Noto+Sans+JP:wght@500;700;900&family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- MOBILE TOP BAR (Solusi 1: Tampil di layar ponsel agar Flag Switcher di atas) -->
+  <header class="mobile-header" id="mobile-header">
+    <div class="mobile-logo">
+      <span class="logo-mark">F.</span>
+      <span class="logo-title">AI Engineer</span>
+    </div>
+    <div class="mobile-lang-anchor" id="mobile-lang-anchor"></div>
+  </header>
+
+  <!-- ==========================================================================
+       HERO WRAPPER (100% Fit 1-Screen Laptop 16:10 Tanpa Fullscreen & Tanpa Scroll)
+       ========================================================================== -->
+  <main class="hero-canvas">
+    
+    <!-- 1. SISI PALING KIRI: Vertical Text Rail Navigation (Tetap Aktif Saat Responsif) -->
+    <aside class="hero-rail" aria-label="Navigasi Vertikal">
+      <nav class="rail-items">
+        <a href="#about" class="rail-item active" data-i18n="navAbout">About</a>
+        <a href="#experience" class="rail-item" data-i18n="navExperience">Experience</a>
+        <a href="#education" class="rail-item" data-i18n="navEducation">Education</a>
+        <a href="#skill" class="rail-item" data-i18n="navSkill">Skill</a>
+        <a href="#publication" class="rail-item" data-i18n="navPublication">Publication</a>
+      </nav>
+    </aside>
+
+    <!-- 2. MAIN BENTO GRID (2 Kolom Seimbang: Kiri & Kanan) -->
+    <div class="hero-bento-grid">
+      
+      <!-- ====================================================================
+           KOLOM KIRI: About Me Notch Card (Full Photo Background) + PORTFOLIO
+           ==================================================================== -->
+      <section class="left-column">
+        
+        <!-- Wrapper Kartu About Me (Bentuk Notch Kiri Atas dengan Full Photo Background) -->
+        <div class="about-card-container" id="about">
+          
+          <!-- Layer Background SVG Parametrik (Menghasilkan Sudut Dalam Melengkung Presisi) -->
+          <svg class="card-shape-svg" id="aboutCardSvg" aria-hidden="true">
+            <defs>
+              <clipPath id="aboutCardClip">
+                <path id="aboutCardClipPath" />
+              </clipPath>
+            </defs>
+            <path id="aboutCardPath" fill="var(--card-bg)" />
+          </svg>
+
+          <!-- Label "About Me" di ruang putih notch kiri atas -->
+          <div class="about-label-notch">
+            <h2 class="section-heading" data-i18n="aboutHeading">About Me</h2>
+          </div>
+
+          <!-- FULL PHOTO BACKGROUND WRAPPER -->
+          <div class="about-photo-wrapper">
+            <!-- Gambar Foto Profil Anda (Cukup taruh file foto Anda di: assets/profile.jpg) -->
+            <img 
+              src="assets/profile.jpg" 
+              alt="Faq - AI Engineer & Researcher" 
+              class="about-profile-photo" 
+              id="profilePhoto"
+              onerror="this.style.display='none'; document.getElementById('photoFallback').style.display='flex';"
+            />
+            
+            <!-- Fallback Visual Elegan jika foto belum ditaruh di assets/profile.jpg -->
+            <div class="photo-fallback-screen" id="photoFallback">
+              <div class="fallback-glow"></div>
+              <div class="fallback-silhouette">
+                <svg viewBox="0 0 200 240" class="silhouette-svg">
+                  <path d="M100 30 C75 30 55 50 55 78 C55 106 75 125 100 125 C125 125 145 106 145 78 C145 50 125 30 100 30 Z" fill="rgba(15, 23, 42, 0.45)" />
+                  <path d="M30 220 C30 160 65 145 100 145 C135 145 170 160 170 220 Z" fill="rgba(15, 23, 42, 0.45)" />
+                </svg>
+                <div class="photo-instruction-hint">
+                  <span>✦ Letakkan foto Anda di: <code>assets/profile.jpg</code></span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Gradient Shade di bagian bawah agar teks selalu kontras dan terbaca jelas -->
+            <div class="photo-gradient-overlay"></div>
+          </div>
+
+          <!-- Konten Teks Identitas di Bagian Bawah Kartu -->
+          <div class="about-card-content">
+            <div class="identity-block">
+              <h1 class="person-name" data-i18n="personName">Hi I’m Faq</h1>
+              <p class="person-tagline" data-i18n="personTagline">
+                Building & deploying LLM-powered applications
+              </p>
+              <div class="focus-tags">
+                <span class="tag-chip">RAG Systems</span>
+                <span class="tag-chip">Agentic AI</span>
+                <span class="tag-chip">Fine-Tuning</span>
+                <span class="tag-chip">vLLM Inference</span>
+              </div>
+
+              <!-- Button Download My Resume -->
+              <div class="card-action-row">
+                <a href="assets/resume.pdf" class="resume-download-btn" download="Faq_AI_Engineer_Resume.pdf" target="_blank" rel="noopener noreferrer">
+                  <svg class="download-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                    <polyline points="7 10 12 15 17 10"/>
+                    <line x1="12" y1="15" x2="12" y2="3"/>
+                  </svg>
+                  <span data-i18n="downloadResume">Download My Resume</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Teks Raksasa "PORTFOLIO" (Batas Bawah Tepat Sejajar Garis Bawah Contact Me) -->
+        <div class="giant-portfolio-wrapper">
+          <h2 class="giant-portfolio-text" data-i18n="giantPortfolio">PORTFOLIO</h2>
+        </div>
+
+      </section>
+
+
+      <!-- ====================================================================
+           KOLOM KANAN: Tools & Stack, Sliding Banner Project, Contact Me
+           ==================================================================== -->
+      <section class="right-column">
+        
+        <!-- A. KARTU ATAS: Tools & Stack dengan Dudukan Interlocking untuk 3 Bahasa -->
+        <div class="tools-card-container" id="skill">
+          
+          <!-- Layer Background SVG Parametrik (Tab Tinggi di Kiri, Notch Dudukan di Kanan) -->
+          <svg class="card-shape-svg" id="toolsCardSvg" aria-hidden="true">
+            <path id="toolsCardPath" fill="var(--card-bg)" />
+          </svg>
+
+          <!-- Header Bar: Judul "Tools & Stack" di kiri dan Kapsul 3 Bahasa di notch kanan -->
+          <div class="tools-header-bar">
+            <h3 class="tools-title-tab" data-i18n="toolsTitle">Tools & Stack</h3>
+
+            <!-- Kapsul Pemilih 3 Bahasa (Docked di kanan atas) -->
+            <div class="lang-capsule" id="langCapsule">
+              <!-- ID Flag -->
+              <button class="lang-btn active" data-lang="id" title="Bahasa Indonesia" aria-label="Ganti Bahasa Indonesia">
+                <svg class="flag-icon" viewBox="0 0 32 32">
+                  <clipPath id="clipID"><circle cx="16" cy="16" r="14" /></clipPath>
+                  <g clip-path="url(#clipID)">
+                    <rect width="32" height="16" fill="#e11d48" />
+                    <rect y="16" width="32" height="16" fill="#ffffff" />
+                  </g>
+                  <circle cx="16" cy="16" r="13.5" fill="none" stroke="rgba(0,0,0,0.18)" stroke-width="1.2" />
+                </svg>
+              </button>
+
+              <!-- ENG Flag -->
+              <button class="lang-btn" data-lang="en" title="English" aria-label="Switch to English">
+                <svg class="flag-icon" viewBox="0 0 32 32">
+                  <clipPath id="clipEN"><circle cx="16" cy="16" r="14" /></clipPath>
+                  <g clip-path="url(#clipEN)">
+                    <rect width="32" height="32" fill="#1e3a8a" />
+                    <line x1="0" y1="0" x2="32" y2="32" stroke="#ffffff" stroke-width="5" />
+                    <line x1="32" y1="0" x2="0" y2="32" stroke="#ffffff" stroke-width="5" />
+                    <line x1="0" y1="0" x2="32" y2="32" stroke="#dc2626" stroke-width="2.5" />
+                    <line x1="32" y1="0" x2="0" y2="32" stroke="#dc2626" stroke-width="2.5" />
+                    <line x1="16" y1="0" x2="16" y2="32" stroke="#ffffff" stroke-width="8" />
+                    <line x1="0" y1="16" x2="32" y2="16" stroke="#ffffff" stroke-width="8" />
+                    <line x1="16" y1="0" x2="16" y2="32" stroke="#dc2626" stroke-width="4.5" />
+                    <line x1="0" y1="16" x2="32" y2="16" stroke="#dc2626" stroke-width="4.5" />
+                  </g>
+                  <circle cx="16" cy="16" r="13.5" fill="none" stroke="rgba(0,0,0,0.18)" stroke-width="1.2" />
+                </svg>
+              </button>
+
+              <!-- JP Flag -->
+              <button class="lang-btn" data-lang="jp" title="日本語" aria-label="日本語に切り替え">
+                <svg class="flag-icon" viewBox="0 0 32 32">
+                  <clipPath id="clipJP"><circle cx="16" cy="16" r="14" /></clipPath>
+                  <g clip-path="url(#clipJP)">
+                    <rect width="32" height="32" fill="#ffffff" />
+                    <circle cx="16" cy="16" r="8" fill="#dc2626" />
+                  </g>
+                  <circle cx="16" cy="16" r="13.5" fill="none" stroke="rgba(0,0,0,0.18)" stroke-width="1.2" />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Konten Badge Tools & Tech Stack (Single-Track Infinite Running Marquee) -->
+          <div class="tools-card-content">
+            <div class="marquee-wrapper">
+              <div class="marquee-row">
+                <div class="marquee-track">
+                  <!-- Set 1 -->
+                  <div class="tech-pill"><span>Python</span></div>
+                  <div class="tech-pill"><span>PyTorch</span></div>
+                  <div class="tech-pill"><span>Hugging Face</span></div>
+                  <div class="tech-pill"><span>LangChain</span></div>
+                  <div class="tech-pill"><span>LangGraph</span></div>
+                  <div class="tech-pill"><span>vLLM</span></div>
+                  <div class="tech-pill"><span>Ollama</span></div>
+                  <div class="tech-pill"><span>Qdrant</span></div>
+                  <div class="tech-pill"><span>FastAPI</span></div>
+                  <div class="tech-pill"><span>Docker</span></div>
+                  <div class="tech-pill"><span>CUDA</span></div>
+                  <div class="tech-pill"><span>ChromaDB</span></div>
+                  <div class="tech-pill"><span>DeepSpeed</span></div>
+                  
+                  <!-- Set 2 (Duplikasi Mulus untuk Seamless Loop) -->
+                  <div class="tech-pill" aria-hidden="true"><span>Python</span></div>
+                  <div class="tech-pill" aria-hidden="true"><span>PyTorch</span></div>
+                  <div class="tech-pill" aria-hidden="true"><span>Hugging Face</span></div>
+                  <div class="tech-pill" aria-hidden="true"><span>LangChain</span></div>
+                  <div class="tech-pill" aria-hidden="true"><span>LangGraph</span></div>
+                  <div class="tech-pill" aria-hidden="true"><span>vLLM</span></div>
+                  <div class="tech-pill" aria-hidden="true"><span>Ollama</span></div>
+                  <div class="tech-pill" aria-hidden="true"><span>Qdrant</span></div>
+                  <div class="tech-pill" aria-hidden="true"><span>FastAPI</span></div>
+                  <div class="tech-pill" aria-hidden="true"><span>Docker</span></div>
+                  <div class="tech-pill" aria-hidden="true"><span>CUDA</span></div>
+                  <div class="tech-pill" aria-hidden="true"><span>ChromaDB</span></div>
+                  <div class="tech-pill" aria-hidden="true"><span>DeepSpeed</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- B. KARTU TENGAH: Sliding Banner Project (Area Utama) -->
+        <div class="project-banner-container" id="projects">
+          
+          <!-- Banner Header & Navigasi Slide -->
+          <div class="banner-top-bar">
+            <h3 class="banner-main-title" data-i18n="bannerTitle">Sliding Banner Project</h3>
+            
+            <div class="carousel-nav">
+              <button class="carousel-btn prev" id="prevSlideBtn" aria-label="Proyek Sebelumnya">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+              </button>
+              <div class="carousel-indicators" id="carouselIndicators">
+                <span class="c-dot active" data-idx="0"></span>
+                <span class="c-dot" data-idx="1"></span>
+                <span class="c-dot" data-idx="2"></span>
+              </div>
+              <button class="carousel-btn next" id="nextSlideBtn" aria-label="Proyek Selanjutnya">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Carousel Slides Container -->
+          <div class="banner-stage" id="bannerStage">
+            
+            <!-- Slide 0: Enterprise RAG Architecture -->
+            <article class="project-slide active" data-slide="0">
+              <div class="slide-info">
+                <span class="category-badge">LLM Architecture</span>
+                <h4 class="project-heading" data-i18n="proj1Title">Enterprise Multi-Hop RAG Agent</h4>
+                <p class="project-summary" data-i18n="proj1Desc">
+                  Sistem tanya jawab dokumen korporat skala besar dengan hybrid dense-sparse vector retrieval, cross-encoder reranking, dan routing query otonom.
+                </p>
+                <div class="tech-tags-row">
+                  <span>Llama-3</span>
+                  <span>LangGraph</span>
+                  <span>Qdrant</span>
+                  <span>FastAPI</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Slide 1: Fine-Tuned Domain LLM -->
+            <article class="project-slide" data-slide="1">
+              <div class="slide-info">
+                <span class="category-badge">Model Optimization</span>
+                <h4 class="project-heading" data-i18n="proj2Title">Domain-Adapted Instruction Model</h4>
+                <p class="project-summary" data-i18n="proj2Desc">
+                  Fine-tuning QLoRA parameter-efficient pada 70B parameter dengan dataset instruksi sintetik terkurasi, mencapai akselerasi throughput 4.2x via vLLM.
+                </p>
+                <div class="tech-tags-row">
+                  <span>Unsloth</span>
+                  <span>PyTorch</span>
+                  <span>vLLM</span>
+                  <span>HuggingFace</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Slide 2: Autonomous Multimodal Agent -->
+            <article class="project-slide" data-slide="2">
+              <div class="slide-info">
+                <span class="category-badge">Multimodal Agents</span>
+                <h4 class="project-heading" data-i18n="proj3Title">Vision-Language Automation Agent</h4>
+                <p class="project-summary" data-i18n="proj3Desc">
+                  Agent AI otonom yang memproses input visual (diagram antarmuka, invoice, dokumen teknis) dan mengeksekusi aksi API terstruktur secara deterministik.
+                </p>
+                <div class="tech-tags-row">
+                  <span>GPT-4o</span>
+                  <span>PydanticAI</span>
+                  <span>Ollama</span>
+                  <span>Docker</span>
+                </div>
+              </div>
+            </article>
+
+          </div>
+        </div>
+
+
+        <!-- C. KARTU BAWAH: CONTACT ME: Full-Width Pill (Batas Bawah Sejajar PORTFOLIO) -->
+        <div class="contact-pill-container">
+          <span class="contact-heading" data-i18n="contactHeading">CONTACT ME:</span>
+          
+          <div class="social-links-group">
+            <!-- GitHub: https://github.com/mxfaqih -->
+            <a href="https://github.com/mxfaqih" target="_blank" rel="noopener noreferrer" class="social-icon-btn github" title="GitHub: mxfaqih" aria-label="GitHub Profile">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+            </a>
+
+            <!-- WhatsApp: https://wa.me/6285732406997 -->
+            <a href="https://wa.me/6285732406997" target="_blank" rel="noopener noreferrer" class="social-icon-btn whatsapp" title="WhatsApp: +62 857-3240-6997" aria-label="Kirim WhatsApp">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2zm5.79 14.07c-.24.68-1.4 1.25-1.92 1.33-.5.08-1.14.12-3.66-.92-3.23-1.34-5.28-4.63-5.44-4.85-.16-.21-1.3-1.73-1.3-3.3 0-1.57.82-2.34 1.11-2.66.29-.32.63-.4.85-.4.21 0 .42.01.6.01.2 0 .45-.07.7.53.26.62.88 2.14.95 2.3.08.16.13.35.03.56-.1.21-.16.35-.32.53-.16.19-.34.42-.48.56-.16.16-.33.33-.14.65.19.32.84 1.38 1.8 2.24 1.24 1.1 2.28 1.44 2.6 1.6.32.16.51.13.7-.08.19-.21.82-.95 1.04-1.28.21-.32.43-.27.72-.16.29.11 1.84.87 2.16 1.03.32.16.53.24.61.37.08.14.08.79-.16 1.47z"/></svg>
+            </a>
+
+            <!-- LinkedIn: https://www.linkedin.com/in/mxfaqih -->
+            <a href="https://www.linkedin.com/in/mxfaqih" target="_blank" rel="noopener noreferrer" class="social-icon-btn linkedin" title="LinkedIn: mxfaqih" aria-label="LinkedIn Profile">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.45 1.45 0 0 0 1.46-1.45 1.46 1.46 0 0 0-2.92 0c0 .8.66 1.45 1.46 1.45m1.38 9.74v-8.37H5.08v8.37h2.76z"/></svg>
+            </a>
+          </div>
+        </div>
+
+      </section>
+
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
