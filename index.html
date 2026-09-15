@@ -28,23 +28,32 @@
   </header>
 
   <!-- ==========================================================================
-       HERO WRAPPER (100% Fit 1-Screen Laptop 16:10 Tanpa Fullscreen & Tanpa Scroll)
+       SITE WRAPPER: Sticky Vertical Rail + Continuous Main Content Flow
        ========================================================================== -->
-  <main class="hero-canvas">
+  <div class="site-layout-wrapper">
     
-    <!-- 1. SISI PALING KIRI: Vertical Text Rail Navigation (Tetap Aktif Saat Responsif) -->
-    <aside class="hero-rail" aria-label="Navigasi Vertikal">
-      <nav class="rail-items">
-        <a href="#about" class="rail-item active" data-i18n="navAbout">About</a>
-        <a href="#experience" class="rail-item" data-i18n="navExperience">Experience</a>
-        <a href="#education" class="rail-item" data-i18n="navEducation">Education</a>
-        <a href="#skill" class="rail-item" data-i18n="navSkill">Skill</a>
-        <a href="#publication" class="rail-item" data-i18n="navPublication">Publication</a>
-      </nav>
+    <!-- 1. SISI PALING KIRI: Vertical Text Rail Navigation (Sticky Sepanjang Halaman) -->
+    <aside class="hero-rail" id="heroRail" aria-label="Navigasi Vertikal">
+      <div class="rail-track" id="railTrack">
+        <div class="rail-indicator" id="railIndicator"></div>
+        <nav class="rail-items" id="railItems">
+          <a href="#about" class="rail-item active" data-i18n="navAbout">About</a>
+          <a href="#experience" class="rail-item" data-i18n="navExperience">Experience</a>
+          <a href="#education" class="rail-item" data-i18n="navEducation">Education</a>
+          <a href="#skill" class="rail-item" data-i18n="navSkill">Skill</a>
+          <a href="#publication" class="rail-item" data-i18n="navPublication">Publication</a>
+        </nav>
+      </div>
     </aside>
 
-    <!-- 2. MAIN BENTO GRID (2 Kolom Seimbang: Kiri & Kanan) -->
-    <div class="hero-bento-grid">
+    <!-- 2. MAIN CONTENT STREAM: Hero Canvas + Connected Timeline + Future Sections -->
+    <div class="site-main-flow">
+      
+      <!-- HERO CANVAS (100% Fit 1-Screen Laptop 16:10 Tanpa Fullscreen & Tanpa Scroll) -->
+      <main class="hero-canvas" id="about">
+        
+        <!-- MAIN BENTO GRID (2 Kolom Seimbang: Kiri & Kanan) -->
+        <div class="hero-bento-grid">
       
       <!-- ====================================================================
            KOLOM KIRI: About Me Notch Card (Full Photo Background) + PORTFOLIO
@@ -52,7 +61,7 @@
       <section class="left-column">
         
         <!-- Wrapper Kartu About Me (Bentuk Notch Kiri Atas dengan Full Photo Background) -->
-        <div class="about-card-container" id="about">
+        <div class="about-card-container">
           
           <!-- Layer Background SVG Parametrik (Menghasilkan Sudut Dalam Melengkung Presisi) -->
           <svg class="card-shape-svg" id="aboutCardSvg" aria-hidden="true">
@@ -112,16 +121,60 @@
                 <span class="tag-chip">vLLM Inference</span>
               </div>
 
-              <!-- Button Download My Resume -->
-              <div class="card-action-row">
-                <a href="assets/resume.pdf" class="resume-download-btn" download="Faq_AI_Engineer_Resume.pdf" target="_blank" rel="noopener noreferrer">
+              <!-- Button & Dropdown Popover Download Resume (3 Dokumen: ATS EN, 履歴書, 職務経歴書) -->
+              <div class="card-action-row resume-popover-wrapper" id="resumePopoverWrapper">
+                <button type="button" class="resume-download-btn" id="resumeDropdownTrigger" aria-expanded="false" aria-haspopup="true">
                   <svg class="download-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
                     <polyline points="7 10 12 15 17 10"/>
                     <line x1="12" y1="15" x2="12" y2="3"/>
                   </svg>
-                  <span data-i18n="downloadResume">Download My Resume</span>
-                </a>
+                  <span data-i18n="downloadResume">Download Resume</span>
+                  <svg class="chevron-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </button>
+
+                <!-- Floating Dropdown Popover (Muncul melayang ke atas) -->
+                <div class="resume-dropdown-menu" id="resumeDropdownMenu" role="menu">
+                  <div class="dropdown-header-note" data-i18n="resumeDropdownTitle">Select Document Format:</div>
+                  
+                  <!-- 1. English ATS Resume -->
+                  <a href="assets/resume/resume-en.pdf" download="Faq_AI_Engineer_Resume_EN.pdf" class="resume-option-item" role="menuitem">
+                    <span class="doc-flag" aria-hidden="true">🇬🇧</span>
+                    <div class="doc-info">
+                      <div class="doc-name" data-i18n="resumeEnTitle">English ATS Resume</div>
+                      <div class="doc-desc" data-i18n="resumeEnDesc">Standard 1-page international format (.pdf)</div>
+                    </div>
+                    <svg class="doc-dl-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+                    </svg>
+                  </a>
+
+                  <!-- 2. Rirekisho (履歴書) -->
+                  <a href="assets/resume/rirekisho.pdf" download="Faq_Rirekisho_JP.pdf" class="resume-option-item" role="menuitem">
+                    <span class="doc-flag" aria-hidden="true">🇯🇵</span>
+                    <div class="doc-info">
+                      <div class="doc-name" data-i18n="resumeRirekishoTitle">履歴書 (Rirekisho)</div>
+                      <div class="doc-desc" data-i18n="resumeRirekishoDesc">Standard Japanese Bio & Education (.pdf)</div>
+                    </div>
+                    <svg class="doc-dl-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+                    </svg>
+                  </a>
+
+                  <!-- 3. Shokumu Keirekisho (職務経歴書) -->
+                  <a href="assets/resume/shokumu-keirekisho.pdf" download="Faq_Shokumu_Keirekisho_JP.pdf" class="resume-option-item" role="menuitem">
+                    <span class="doc-flag" aria-hidden="true">🇯🇵</span>
+                    <div class="doc-info">
+                      <div class="doc-name" data-i18n="resumeShokumuTitle">職務経歴書 (Shokumu Keirekisho)</div>
+                      <div class="doc-desc" data-i18n="resumeShokumuDesc">Detailed AI projects & tech career history (.pdf)</div>
+                    </div>
+                    <svg class="doc-dl-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+                    </svg>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -152,50 +205,53 @@
           <div class="tools-header-bar">
             <h3 class="tools-title-tab" data-i18n="toolsTitle">Tools & Stack</h3>
 
-            <!-- Kapsul Pemilih 3 Bahasa (Docked di kanan atas) -->
+            <!-- Kapsul Pemilih 3 Bahasa (Docked Padat di Lengkungan Notch Kanan Atas) -->
             <div class="lang-capsule" id="langCapsule">
-              <!-- ID Flag -->
-              <button class="lang-btn active" data-lang="id" title="Bahasa Indonesia" aria-label="Ganti Bahasa Indonesia">
-                <svg class="flag-icon" viewBox="0 0 32 32">
-                  <clipPath id="clipID"><circle cx="16" cy="16" r="14" /></clipPath>
-                  <g clip-path="url(#clipID)">
-                    <rect width="32" height="16" fill="#e11d48" />
-                    <rect y="16" width="32" height="16" fill="#ffffff" />
-                  </g>
-                  <circle cx="16" cy="16" r="13.5" fill="none" stroke="rgba(0,0,0,0.18)" stroke-width="1.2" />
-                </svg>
-              </button>
+              <span class="lang-label" data-i18n="langLabel">Language:</span>
+              <div class="lang-flags">
+                <!-- ID Flag -->
+                <button class="lang-btn active" data-lang="id" title="Bahasa Indonesia" aria-label="Ganti Bahasa Indonesia">
+                  <svg class="flag-icon" viewBox="0 0 32 32">
+                    <clipPath id="clipID"><circle cx="16" cy="16" r="14" /></clipPath>
+                    <g clip-path="url(#clipID)">
+                      <rect width="32" height="16" fill="#e11d48" />
+                      <rect y="16" width="32" height="16" fill="#ffffff" />
+                    </g>
+                    <circle cx="16" cy="16" r="13.5" fill="none" stroke="rgba(0,0,0,0.18)" stroke-width="1.2" />
+                  </svg>
+                </button>
 
-              <!-- ENG Flag -->
-              <button class="lang-btn" data-lang="en" title="English" aria-label="Switch to English">
-                <svg class="flag-icon" viewBox="0 0 32 32">
-                  <clipPath id="clipEN"><circle cx="16" cy="16" r="14" /></clipPath>
-                  <g clip-path="url(#clipEN)">
-                    <rect width="32" height="32" fill="#1e3a8a" />
-                    <line x1="0" y1="0" x2="32" y2="32" stroke="#ffffff" stroke-width="5" />
-                    <line x1="32" y1="0" x2="0" y2="32" stroke="#ffffff" stroke-width="5" />
-                    <line x1="0" y1="0" x2="32" y2="32" stroke="#dc2626" stroke-width="2.5" />
-                    <line x1="32" y1="0" x2="0" y2="32" stroke="#dc2626" stroke-width="2.5" />
-                    <line x1="16" y1="0" x2="16" y2="32" stroke="#ffffff" stroke-width="8" />
-                    <line x1="0" y1="16" x2="32" y2="16" stroke="#ffffff" stroke-width="8" />
-                    <line x1="16" y1="0" x2="16" y2="32" stroke="#dc2626" stroke-width="4.5" />
-                    <line x1="0" y1="16" x2="32" y2="16" stroke="#dc2626" stroke-width="4.5" />
-                  </g>
-                  <circle cx="16" cy="16" r="13.5" fill="none" stroke="rgba(0,0,0,0.18)" stroke-width="1.2" />
-                </svg>
-              </button>
+                <!-- ENG Flag -->
+                <button class="lang-btn" data-lang="en" title="English" aria-label="Switch to English">
+                  <svg class="flag-icon" viewBox="0 0 32 32">
+                    <clipPath id="clipEN"><circle cx="16" cy="16" r="14" /></clipPath>
+                    <g clip-path="url(#clipEN)">
+                      <rect width="32" height="32" fill="#1e3a8a" />
+                      <line x1="0" y1="0" x2="32" y2="32" stroke="#ffffff" stroke-width="5" />
+                      <line x1="32" y1="0" x2="0" y2="32" stroke="#ffffff" stroke-width="5" />
+                      <line x1="0" y1="0" x2="32" y2="32" stroke="#dc2626" stroke-width="2.5" />
+                      <line x1="32" y1="0" x2="0" y2="32" stroke="#dc2626" stroke-width="2.5" />
+                      <line x1="16" y1="0" x2="16" y2="32" stroke="#ffffff" stroke-width="8" />
+                      <line x1="0" y1="16" x2="32" y2="16" stroke="#ffffff" stroke-width="8" />
+                      <line x1="16" y1="0" x2="16" y2="32" stroke="#dc2626" stroke-width="4.5" />
+                      <line x1="0" y1="16" x2="32" y2="16" stroke="#dc2626" stroke-width="4.5" />
+                    </g>
+                    <circle cx="16" cy="16" r="13.5" fill="none" stroke="rgba(0,0,0,0.18)" stroke-width="1.2" />
+                  </svg>
+                </button>
 
-              <!-- JP Flag -->
-              <button class="lang-btn" data-lang="jp" title="日本語" aria-label="日本語に切り替え">
-                <svg class="flag-icon" viewBox="0 0 32 32">
-                  <clipPath id="clipJP"><circle cx="16" cy="16" r="14" /></clipPath>
-                  <g clip-path="url(#clipJP)">
-                    <rect width="32" height="32" fill="#ffffff" />
-                    <circle cx="16" cy="16" r="8" fill="#dc2626" />
-                  </g>
-                  <circle cx="16" cy="16" r="13.5" fill="none" stroke="rgba(0,0,0,0.18)" stroke-width="1.2" />
-                </svg>
-              </button>
+                <!-- JP Flag -->
+                <button class="lang-btn" data-lang="jp" title="日本語" aria-label="日本語に切り替え">
+                  <svg class="flag-icon" viewBox="0 0 32 32">
+                    <clipPath id="clipJP"><circle cx="16" cy="16" r="14" /></clipPath>
+                    <g clip-path="url(#clipJP)">
+                      <rect width="32" height="32" fill="#ffffff" />
+                      <circle cx="16" cy="16" r="8" fill="#dc2626" />
+                    </g>
+                    <circle cx="16" cy="16" r="13.5" fill="none" stroke="rgba(0,0,0,0.18)" stroke-width="1.2" />
+                  </svg>
+                </button>
+              </div>
             </div>
           </div>
 
@@ -204,35 +260,35 @@
             <div class="marquee-wrapper">
               <div class="marquee-row">
                 <div class="marquee-track">
-                  <!-- Set 1 -->
-                  <div class="tech-pill"><span>Python</span></div>
-                  <div class="tech-pill"><span>PyTorch</span></div>
-                  <div class="tech-pill"><span>Hugging Face</span></div>
-                  <div class="tech-pill"><span>LangChain</span></div>
-                  <div class="tech-pill"><span>LangGraph</span></div>
-                  <div class="tech-pill"><span>vLLM</span></div>
-                  <div class="tech-pill"><span>Ollama</span></div>
-                  <div class="tech-pill"><span>Qdrant</span></div>
-                  <div class="tech-pill"><span>FastAPI</span></div>
-                  <div class="tech-pill"><span>Docker</span></div>
-                  <div class="tech-pill"><span>CUDA</span></div>
-                  <div class="tech-pill"><span>ChromaDB</span></div>
-                  <div class="tech-pill"><span>DeepSpeed</span></div>
+                  <!-- Set 1: 13 Pure Logo Pills -->
+                  <div class="tech-pill" title="Python"><img src="assets/tech-stack-marquee-logo/python.png" alt="Python" class="tech-logo-img"></div>
+                  <div class="tech-pill" title="PyTorch"><img src="assets/tech-stack-marquee-logo/pytorch.png" alt="PyTorch" class="tech-logo-img"></div>
+                  <div class="tech-pill" title="Hugging Face"><img src="assets/tech-stack-marquee-logo/hf.png" alt="Hugging Face" class="tech-logo-img"></div>
+                  <div class="tech-pill" title="LangChain"><img src="assets/tech-stack-marquee-logo/langchain.png" alt="LangChain" class="tech-logo-img"></div>
+                  <div class="tech-pill" title="vLLM"><img src="assets/tech-stack-marquee-logo/vllm.png" alt="vLLM" class="tech-logo-img"></div>
+                  <div class="tech-pill" title="OpenAI"><img src="assets/tech-stack-marquee-logo/openai.png" alt="OpenAI" class="tech-logo-img"></div>
+                  <div class="tech-pill" title="Anthropic"><img src="assets/tech-stack-marquee-logo/anthropic.png" alt="Anthropic" class="tech-logo-img"></div>
+                  <div class="tech-pill" title="Qdrant"><img src="assets/tech-stack-marquee-logo/qdrant.png" alt="Qdrant" class="tech-logo-img"></div>
+                  <div class="tech-pill" title="FastAPI"><img src="assets/tech-stack-marquee-logo/fastapi.png" alt="FastAPI" class="tech-logo-img"></div>
+                  <div class="tech-pill" title="Docker"><img src="assets/tech-stack-marquee-logo/docker.png" alt="Docker" class="tech-logo-img"></div>
+                  <div class="tech-pill" title="PostgreSQL"><img src="assets/tech-stack-marquee-logo/postgres.png" alt="PostgreSQL" class="tech-logo-img"></div>
+                  <div class="tech-pill" title="Git"><img src="assets/tech-stack-marquee-logo/git.png" alt="Git" class="tech-logo-img"></div>
+                  <div class="tech-pill" title="Antigravity"><img src="assets/tech-stack-marquee-logo/antigravity.png" alt="Antigravity" class="tech-logo-img"></div>
                   
-                  <!-- Set 2 (Duplikasi Mulus untuk Seamless Loop) -->
-                  <div class="tech-pill" aria-hidden="true"><span>Python</span></div>
-                  <div class="tech-pill" aria-hidden="true"><span>PyTorch</span></div>
-                  <div class="tech-pill" aria-hidden="true"><span>Hugging Face</span></div>
-                  <div class="tech-pill" aria-hidden="true"><span>LangChain</span></div>
-                  <div class="tech-pill" aria-hidden="true"><span>LangGraph</span></div>
-                  <div class="tech-pill" aria-hidden="true"><span>vLLM</span></div>
-                  <div class="tech-pill" aria-hidden="true"><span>Ollama</span></div>
-                  <div class="tech-pill" aria-hidden="true"><span>Qdrant</span></div>
-                  <div class="tech-pill" aria-hidden="true"><span>FastAPI</span></div>
-                  <div class="tech-pill" aria-hidden="true"><span>Docker</span></div>
-                  <div class="tech-pill" aria-hidden="true"><span>CUDA</span></div>
-                  <div class="tech-pill" aria-hidden="true"><span>ChromaDB</span></div>
-                  <div class="tech-pill" aria-hidden="true"><span>DeepSpeed</span></div>
+                  <!-- Set 2: Duplikasi Mulus untuk Seamless Loop -->
+                  <div class="tech-pill" aria-hidden="true"><img src="assets/tech-stack-marquee-logo/python.png" alt="Python" class="tech-logo-img"></div>
+                  <div class="tech-pill" aria-hidden="true"><img src="assets/tech-stack-marquee-logo/pytorch.png" alt="PyTorch" class="tech-logo-img"></div>
+                  <div class="tech-pill" aria-hidden="true"><img src="assets/tech-stack-marquee-logo/hf.png" alt="Hugging Face" class="tech-logo-img"></div>
+                  <div class="tech-pill" aria-hidden="true"><img src="assets/tech-stack-marquee-logo/langchain.png" alt="LangChain" class="tech-logo-img"></div>
+                  <div class="tech-pill" aria-hidden="true"><img src="assets/tech-stack-marquee-logo/vllm.png" alt="vLLM" class="tech-logo-img"></div>
+                  <div class="tech-pill" aria-hidden="true"><img src="assets/tech-stack-marquee-logo/openai.png" alt="OpenAI" class="tech-logo-img"></div>
+                  <div class="tech-pill" aria-hidden="true"><img src="assets/tech-stack-marquee-logo/anthropic.png" alt="Anthropic" class="tech-logo-img"></div>
+                  <div class="tech-pill" aria-hidden="true"><img src="assets/tech-stack-marquee-logo/qdrant.png" alt="Qdrant" class="tech-logo-img"></div>
+                  <div class="tech-pill" aria-hidden="true"><img src="assets/tech-stack-marquee-logo/fastapi.png" alt="FastAPI" class="tech-logo-img"></div>
+                  <div class="tech-pill" aria-hidden="true"><img src="assets/tech-stack-marquee-logo/docker.png" alt="Docker" class="tech-logo-img"></div>
+                  <div class="tech-pill" aria-hidden="true"><img src="assets/tech-stack-marquee-logo/postgres.png" alt="PostgreSQL" class="tech-logo-img"></div>
+                  <div class="tech-pill" aria-hidden="true"><img src="assets/tech-stack-marquee-logo/git.png" alt="Git" class="tech-logo-img"></div>
+                  <div class="tech-pill" aria-hidden="true"><img src="assets/tech-stack-marquee-logo/antigravity.png" alt="Antigravity" class="tech-logo-img"></div>
                 </div>
               </div>
             </div>
@@ -344,8 +400,216 @@
 
       </section>
 
-    </div>
-  </main>
+        </div>
+      </main>
+
+      <!-- ==========================================================================
+           CONNECTED CONTINUOUS TIMELINE: EXPERIENCE & EDUCATION
+           ========================================================================== -->
+      <section class="timeline-super-section" id="timelineSection">
+        
+        <!-- Header Section -->
+        <div class="timeline-header-block">
+          <div class="timeline-eyebrow-pill" data-i18n="timelineEyebrow">CAREER & ACADEMIC PATH</div>
+          <h2 class="timeline-main-heading" data-i18n="timelineHeading">Experience & Education</h2>
+          <p class="timeline-subheading" data-i18n="timelineSubheading">
+            Perjalanan rekayasa sistem AI, riset model bahasa besar (LLM), dan fondasi akademis ilmu komputer.
+          </p>
+        </div>
+
+        <!-- Unified Connected Spine Timeline Container -->
+        <div class="timeline-stream">
+          
+          <!-- Rel Vertikal Menyambung (Continuous Glowing Spine Line) -->
+          <div class="timeline-spine-line" aria-hidden="true"></div>
+
+          <!-- ====================================================================
+               FASE 1: WORK EXPERIENCE (#experience)
+               ==================================================================== -->
+          <div class="timeline-phase" id="experience">
+            <div class="phase-badge">
+              <span class="phase-icon">💼</span>
+              <span class="phase-title" data-i18n="phaseExperience">Experience</span>
+              <span class="phase-range">2023 — Present</span>
+            </div>
+
+            <div class="timeline-milestones">
+              
+              <!-- Milestone 1: Lead / Senior AI & LLM Engineer (Active) -->
+              <article class="timeline-item active-role">
+                <div class="milestone-marker">
+                  <div class="marker-dot pulsing"></div>
+                </div>
+                <div class="milestone-card">
+                  <div class="card-meta-row">
+                    <span class="role-badge active" data-i18n="exp1Status">Currently Working Here</span>
+                    <span class="date-stamp" data-i18n="exp1Date">Jan 2024 — Present</span>
+                  </div>
+                  
+                  <h3 class="role-title" data-i18n="exp1Title">AI & LLM Systems Engineer</h3>
+                  <div class="company-subline">
+                    <span class="company-name" data-i18n="exp1Company">Autonomous AI Labs</span>
+                    <span class="company-loc">• Tokyo / Remote</span>
+                  </div>
+
+                  <p class="role-summary" data-i18n="exp1Summary">
+                    Merancang arsitektur agen AI otonom tingkat korporat, pipeline retrieval terdistribusi (RAG), serta optimasi inferensi throughput tinggi pada GPU cluster.
+                  </p>
+
+                  <ul class="impact-bullets">
+                    <li data-i18n="exp1Bullet1">Merancang & mendeploy Multi-Hop Agentic RAG dengan hybrid dense-sparse retrieval (Qdrant & BM25), memangkas failure rate halusinasi sebesar 78%.</li>
+                    <li data-i18n="exp1Bullet2">Mengoptimasi cluster vLLM dengan PagedAttention & chunked prefill, melipatgandakan throughput pemrosesan 4.2x pada model LLM 70B.</li>
+                    <li data-i18n="exp1Bullet3">Melakukan fine-tuning QLoRA pada model open-weights untuk tugas penalaran khusus dengan dataset instruksi sintetik terkurasi.</li>
+                  </ul>
+
+                  <div class="milestone-stack-tags">
+                    <span class="m-tag">Python</span>
+                    <span class="m-tag">vLLM</span>
+                    <span class="m-tag">PyTorch</span>
+                    <span class="m-tag">LangGraph</span>
+                    <span class="m-tag">Qdrant</span>
+                    <span class="m-tag">Docker</span>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Milestone 2: Machine Learning Researcher & Engineer -->
+              <article class="timeline-item">
+                <div class="milestone-marker">
+                  <div class="marker-dot"></div>
+                </div>
+                <div class="milestone-card">
+                  <div class="card-meta-row">
+                    <span class="role-badge" data-i18n="exp2Status">Contract / Project</span>
+                    <span class="date-stamp" data-i18n="exp2Date">2023 — 2024</span>
+                  </div>
+
+                  <h3 class="role-title" data-i18n="exp2Title">Machine Learning Researcher & Engineer</h3>
+                  <div class="company-subline">
+                    <span class="company-name" data-i18n="exp2Company">Cognitive Data Solutions</span>
+                    <span class="company-loc">• Jakarta, Indonesia</span>
+                  </div>
+
+                  <p class="role-summary" data-i18n="exp2Summary">
+                    Riset dan implementasi model Vision-Language (VLM) untuk ekstraksi dokumen terstruktur dan klasifikasi representasi multimodal skala menengah.
+                  </p>
+
+                  <ul class="impact-bullets">
+                    <li data-i18n="exp2Bullet1">Membangun pipeline ekstraksi informasi semi-otonom memproses 50.000+ lembar dokumen teknis per bulan dengan akurasi parsing 96.2%.</li>
+                    <li data-i18n="exp2Bullet2">Mengembangkan adapter LoRA khusus untuk segmentasi semantik teks multibahasa pada domain teknis.</li>
+                  </ul>
+
+                  <div class="milestone-stack-tags">
+                    <span class="m-tag">Hugging Face</span>
+                    <span class="m-tag">FastAPI</span>
+                    <span class="m-tag">Transformers</span>
+                    <span class="m-tag">PostgreSQL</span>
+                    <span class="m-tag">CUDA</span>
+                  </div>
+                </div>
+              </article>
+
+            </div>
+          </div>
+
+          <!-- Jembatan Transisi Menyambung (Seamless Transition Bridge) -->
+          <div class="timeline-transition-bridge">
+            <div class="bridge-indicator">
+              <span class="bridge-pill" data-i18n="transitionBridgeText">↓ Transition: Academic Foundation to Production Engineering</span>
+            </div>
+          </div>
+
+          <!-- ====================================================================
+               FASE 2: ACADEMIC EDUCATION (#education)
+               ==================================================================== -->
+          <div class="timeline-phase" id="education">
+            <div class="phase-badge edu-theme">
+              <span class="phase-icon">🎓</span>
+              <span class="phase-title" data-i18n="phaseEducation">Education</span>
+              <span class="phase-range">2020 — 2024</span>
+            </div>
+
+            <div class="timeline-milestones">
+              
+              <!-- Milestone 3: Bachelor's Degree in Computer Science -->
+              <article class="timeline-item">
+                <div class="milestone-marker">
+                  <div class="marker-dot edu"></div>
+                </div>
+                <div class="milestone-card">
+                  <div class="card-meta-row">
+                    <span class="role-badge edu" data-i18n="edu1Honor">Bachelor's Degree • Cum Laude</span>
+                    <span class="date-stamp">2020 — 2024</span>
+                  </div>
+
+                  <h3 class="role-title" data-i18n="edu1Degree">Bachelor of Computer Science (S.Kom)</h3>
+                  <div class="company-subline">
+                    <span class="company-name" data-i18n="edu1Institution">Universitas / Institute of Technology</span>
+                    <span class="company-loc">• Computer Science & AI</span>
+                  </div>
+
+                  <!-- Academic Thesis Callout Box -->
+                  <div class="academic-thesis-card">
+                    <div class="thesis-label" data-i18n="edu1ThesisLabel">Undergraduate Research & Thesis:</div>
+                    <div class="thesis-topic" data-i18n="edu1ThesisTopic">
+                      "Implementasi Deep Learning & Sparse-Dense Hybrid Embeddings untuk Peningkatan Akurasi Semantic Information Retrieval pada Korpus Bahasa Indonesia"
+                    </div>
+                  </div>
+
+                  <ul class="impact-bullets">
+                    <li data-i18n="edu1Bullet1">Meraih IPK 3.8+ / predikat Cum Laude dengan fokus riset pada Natural Language Processing dan Deep Learning.</li>
+                    <li data-i18n="edu1Bullet2">Lulusan Bangkit Academy (Google, GoTo, Traveloka) Machine Learning Cohort dengan predikat Top Graduate (Distinction).</li>
+                    <li data-i18n="edu1Bullet3">Asisten Laboratorium Artificial Intelligence & Struktur Data algoritma.</li>
+                  </ul>
+
+                  <div class="milestone-stack-tags">
+                    <span class="m-tag">Deep Learning</span>
+                    <span class="m-tag">NLP</span>
+                    <span class="m-tag">Information Retrieval</span>
+                    <span class="m-tag">Algorithms</span>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Milestone 4: Advanced AI Certification & Fellowship -->
+              <article class="timeline-item">
+                <div class="milestone-marker">
+                  <div class="marker-dot edu"></div>
+                </div>
+                <div class="milestone-card">
+                  <div class="card-meta-row">
+                    <span class="role-badge verified" data-i18n="edu2Badge">Verified Specialization</span>
+                    <span class="date-stamp">2023</span>
+                  </div>
+
+                  <h3 class="role-title" data-i18n="edu2Title">Deep Learning & LLM Systems Specialization</h3>
+                  <div class="company-subline">
+                    <span class="company-name">DeepLearning.AI / Stanford Online</span>
+                    <span class="company-loc">• Professional Credential</span>
+                  </div>
+
+                  <p class="role-summary" data-i18n="edu2Desc">
+                    Penguasaan mendalam arsitektur Transformer, mekanisme self-attention, optimasi konvergensi gradien, distributed training, dan RLHF (Reinforcement Learning from Human Feedback).
+                  </p>
+
+                  <div class="milestone-stack-tags">
+                    <span class="m-tag">Transformers</span>
+                    <span class="m-tag">RLHF</span>
+                    <span class="m-tag">Distributed Training</span>
+                    <span class="m-tag">Attention Mechanisms</span>
+                  </div>
+                </div>
+              </article>
+
+            </div>
+          </div>
+
+        </div>
+
+      </section>
+
+    </div> <!-- /.site-main-flow -->
+  </div> <!-- /.site-layout-wrapper -->
 
   <script src="script.js"></script>
 </body>
