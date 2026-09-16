@@ -7,21 +7,21 @@
 /* --- 1. DESIGN TOKENS & VARIABLES --- */
 :root {
   --bg-canvas: #ffffff;
-  --card-bg: #bcc5cd;              /* Sleek Slate Gray from heroprototype.png */
-  --card-bg-hover: #b4bfc7;
-  --card-chip-bg: rgba(255, 255, 255, 0.7);
+  --card-bg: #e5e5e5;              /* Pure Neutral Silver-Gray */
+  --card-bg-hover: #dadada;
+  --card-chip-bg: rgba(255, 255, 255, 0.75);
   --card-chip-hover: #ffffff;
 
   --text-pure-black: #000000;
-  --text-primary: #0f172a;
-  --text-secondary: #334155;
-  --text-muted: #64748b;
+  --text-primary: #111111;
+  --text-secondary: #444444;
+  --text-muted: #777777;
 
-  --accent-indigo: #4f46e5;
-  --accent-emerald: #10b981;
+  --accent-primary: #000000;
+  --accent-muted: #666666;
 
   --shadow-subtle: 0 4px 20px rgba(0, 0, 0, 0.04);
-  --shadow-card: 0 10px 28px rgba(15, 23, 42, 0.06);
+  --shadow-card: 0 10px 28px rgba(0, 0, 0, 0.06);
 
   --radius-card: 32px;
   --radius-pill: 999px;
@@ -225,7 +225,7 @@ body.lang-jp {
 /* Magnetic Micro-Hover Effect */
 .rail-item:hover {
   opacity: 0.95;
-  color: var(--accent-indigo);
+  color: var(--text-pure-black);
   transform: rotate(-90deg) translateY(-4px) scale(1.08);
 }
 
@@ -323,7 +323,7 @@ body.lang-jp {
 .photo-fallback-screen {
   width: 100%;
   height: 100%;
-  background: linear-gradient(145deg, #c5ced5, #b2bcc5);
+  background: linear-gradient(145deg, #e5e5e5, #cccccc);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -353,7 +353,7 @@ body.lang-jp {
 
 .photo-instruction-hint code {
   font-family: var(--font-mono);
-  color: var(--accent-indigo);
+  color: #000000;
 }
 
 /* Gradient Overlay Bawah (Membuat teks selalu tajam dan kontras di atas foto) */
@@ -457,15 +457,15 @@ body.lang-jp {
 .resume-download-btn:hover {
   transform: translateY(-2px) scale(1.03);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-  background: #f8fafc;
-  color: var(--accent-indigo);
+  background: #f0f0f0;
+  color: #000000;
 }
 
 .resume-download-btn.open {
   background: #ffffff;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
-  border-color: var(--accent-indigo);
-  color: var(--accent-indigo);
+  border-color: #000000;
+  color: #000000;
 }
 
 .download-icon {
@@ -544,14 +544,23 @@ body.lang-jp {
 }
 
 .resume-option-item:hover {
-  background: rgba(79, 70, 229, 0.07);
-  border-color: rgba(79, 70, 229, 0.16);
+  background: rgba(0, 0, 0, 0.06);
+  border-color: rgba(0, 0, 0, 0.15);
   transform: translateX(4px);
 }
 
-.doc-flag {
-  font-size: 1.4rem;
-  line-height: 1;
+.doc-badge-mono {
+  font-size: 0.72rem;
+  font-weight: 800;
+  font-family: var(--font-mono);
+  background: #000000;
+  color: #ffffff;
+  padding: 3px 8px;
+  border-radius: 6px;
+  letter-spacing: 0.04em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   flex-shrink: 0;
 }
 
@@ -582,7 +591,7 @@ body.lang-jp {
 }
 
 .resume-option-item:hover .doc-dl-icon {
-  color: var(--accent-indigo);
+  color: var(--text-pure-black);
   transform: translateY(2px);
 }
 
@@ -708,6 +717,15 @@ body.lang-jp {
   height: clamp(20px, 2.2vh, 26px);
   border-radius: 50%;
   display: block;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.lang-btn:hover .flag-icon {
+  transform: scale(1.1);
+}
+
+.lang-btn.active .flag-icon {
+  opacity: 1;
 }
 
 /* Konten Infinite Running Marquee (Satu Jalur Ramping & Elegan) */
@@ -787,6 +805,11 @@ body.lang-jp {
   object-fit: contain;
   display: block;
   filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.04));
+  transition: transform 0.2s ease;
+}
+
+.tech-pill:hover .tech-logo-img {
+  transform: scale(1.05);
 }
 
 /* --- B. KARTU TENGAH: Sliding Banner Project --- */
@@ -985,18 +1008,18 @@ body.lang-jp {
 }
 
 .social-icon-btn.github:hover {
-  color: #0f172a;
-  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.25);
+  color: #000000;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
 }
 
 .social-icon-btn.whatsapp:hover {
-  color: #25d366;
-  box-shadow: 0 6px 16px rgba(37, 211, 102, 0.35);
+  color: #000000;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
 }
 
 .social-icon-btn.linkedin:hover {
-  color: #0a66c2;
-  box-shadow: 0 6px 16px rgba(10, 102, 194, 0.35);
+  color: #000000;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
 }
 
 /* ==========================================================================
@@ -1021,9 +1044,9 @@ body.lang-jp {
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--accent-indigo);
-  background: rgba(79, 70, 229, 0.08);
-  border: 1px solid rgba(79, 70, 229, 0.2);
+  color: #000000;
+  background: #eeeeee;
+  border: 1px solid #cccccc;
   padding: 4px 14px;
   border-radius: var(--radius-pill);
   margin-bottom: 12px;
@@ -1063,14 +1086,13 @@ body.lang-jp {
   width: 3px;
   background: linear-gradient(
     to bottom,
-    rgba(79, 70, 229, 0.8) 0%,
-    rgba(79, 70, 229, 0.45) 45%,
-    rgba(14, 165, 233, 0.5) 55%,
-    rgba(16, 185, 129, 0.45) 85%,
-    rgba(0, 0, 0, 0.06) 100%
+    #000000 0%,
+    #444444 40%,
+    #888888 75%,
+    rgba(0, 0, 0, 0.08) 100%
   );
   border-radius: 999px;
-  box-shadow: 0 0 12px rgba(79, 70, 229, 0.25);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
   pointer-events: none;
 }
 
@@ -1143,22 +1165,22 @@ body.lang-jp {
   height: 17px;
   border-radius: 50%;
   background: #ffffff;
-  border: 3.5px solid var(--accent-indigo);
-  box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.15);
+  border: 3.5px solid #000000;
+  box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.08);
   transition: all 0.3s ease;
 }
 
 .marker-dot.edu {
-  border-color: #0284c7;
-  box-shadow: 0 0 0 4px rgba(2, 132, 199, 0.15);
+  border-color: #333333;
+  box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.08);
 }
 
 .timeline-item:hover .marker-dot {
   transform: scale(1.25);
-  box-shadow: 0 0 0 7px rgba(79, 70, 229, 0.25);
+  box-shadow: 0 0 0 7px rgba(0, 0, 0, 0.15);
 }
 
-/* Live Pulsing Dot for Active Role */
+/* Live Pulsing Dot for Active Role (Emerald Pulse) */
 .marker-dot.pulsing {
   border-color: #10b981;
   box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.2);
@@ -1198,7 +1220,7 @@ body.lang-jp {
 .milestone-card:hover {
   transform: translateY(-3px);
   box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08);
-  border-color: rgba(79, 70, 229, 0.2);
+  border-color: rgba(0, 0, 0, 0.25);
 }
 
 .card-meta-row {
@@ -1216,8 +1238,8 @@ body.lang-jp {
   text-transform: uppercase;
   padding: 4px 12px;
   border-radius: var(--radius-pill);
-  background: #f1f5f9;
-  color: var(--text-secondary);
+  background: #f0f0f0;
+  color: #333333;
 }
 
 .role-badge.active {
@@ -1227,15 +1249,15 @@ body.lang-jp {
 }
 
 .role-badge.edu {
-  background: rgba(2, 132, 199, 0.1);
-  color: #0284c7;
-  border: 1px solid rgba(2, 132, 199, 0.2);
+  background: #f0f0f0;
+  color: #111111;
+  border: 1px solid #cccccc;
 }
 
 .role-badge.verified {
-  background: rgba(124, 58, 237, 0.1);
-  color: #7c3aed;
-  border: 1px solid rgba(124, 58, 237, 0.2);
+  background: #f5f5f5;
+  color: #222222;
+  border: 1px solid #d0d0d0;
 }
 
 .date-stamp {
@@ -1254,8 +1276,8 @@ body.lang-jp {
 
 .company-subline {
   font-size: clamp(0.88rem, 1.05vw, 1rem);
-  font-weight: 600;
-  color: var(--accent-indigo);
+  font-weight: 700;
+  color: #111111;
   margin-top: -6px;
 }
 
@@ -1293,34 +1315,212 @@ body.lang-jp {
   position: absolute;
   left: 0;
   top: 0;
-  color: var(--accent-indigo);
+  color: #000000;
   font-size: 0.95rem;
 }
 
-/* Academic Thesis Callout Box */
-.academic-thesis-card {
-  background: #f8fafc;
-  border-left: 3.5px solid #0284c7;
-  border-radius: 4px 12px 12px 4px;
-  padding: 12px 16px;
+/* ==========================================================================
+   Thesis Spotlight Showcase Card (Education Section)
+   ========================================================================== */
+.thesis-spotlight-card {
+  display: flex;
+  align-items: center;
+  gap: clamp(14px, 2vw, 24px);
+  background: #f7f7f7;
+  border: 1px solid rgba(0, 0, 0, 0.09);
+  border-radius: 20px;
+  padding: clamp(14px, 1.8vh, 20px) clamp(16px, 2vw, 22px);
+  margin: 6px 0;
+  transition: all 0.3s ease;
+}
+
+.thesis-spotlight-card:hover {
+  background: #ffffff;
+  border-color: rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+}
+
+/* CSS Document Cover Mockup */
+.thesis-cover-mockup {
+  position: relative;
+  width: clamp(75px, 8vw, 92px);
+  height: clamp(105px, 11vw, 128px);
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  flex-shrink: 0;
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+  transition: transform 0.3s ease;
+}
+
+.thesis-spotlight-card:hover .thesis-cover-mockup {
+  transform: translateY(-2px) scale(1.03);
+}
+
+.thesis-doc-spine {
+  width: 5px;
+  height: 100%;
+  background: #111111;
+  flex-shrink: 0;
+}
+
+.thesis-doc-sheet {
+  flex: 1;
+  padding: 8px 6px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.thesis-doc-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.52rem;
+  font-weight: 800;
+  font-family: var(--font-mono);
+  color: #777777;
+}
+
+.thesis-doc-badge-center {
+  font-size: 0.64rem;
+  font-weight: 900;
+  color: #000000;
+  text-align: center;
+  letter-spacing: -0.02em;
+  margin-top: 4px;
+}
+
+.thesis-doc-sub {
+  font-size: 0.46rem;
+  font-weight: 700;
+  color: #666666;
+  text-align: center;
+}
+
+.thesis-doc-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
   margin: 4px 0;
 }
 
-.thesis-label {
-  font-size: 0.72rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: #0284c7;
-  margin-bottom: 4px;
+.thesis-doc-lines span {
+  display: block;
+  height: 2px;
+  background: #e0e0e0;
+  border-radius: 2px;
 }
 
-.thesis-topic {
-  font-size: clamp(0.84rem, 0.95vw, 0.92rem);
-  font-weight: 600;
-  color: var(--text-primary);
-  line-height: 1.45;
-  font-style: italic;
+.thesis-doc-lines span:nth-child(2) {
+  width: 80%;
+}
+
+.thesis-doc-lines span:nth-child(3) {
+  width: 60%;
+}
+
+.thesis-doc-author {
+  font-size: 0.48rem;
+  font-weight: 800;
+  color: #333333;
+  text-align: right;
+  font-family: var(--font-mono);
+}
+
+/* Content Side */
+.thesis-content-block {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.thesis-meta-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.thesis-type-tag {
+  font-size: 0.68rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #ffffff;
+  background: #000000;
+  padding: 3px 9px;
+  border-radius: 6px;
+}
+
+.thesis-status-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #10b981;
+}
+
+.thesis-grade-tag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #047857;
+}
+
+.thesis-main-title {
+  font-size: clamp(0.92rem, 1.1vw, 1.05rem);
+  font-weight: 800;
+  color: var(--text-pure-black);
+  line-height: 1.35;
+}
+
+.thesis-summary-text {
+  font-size: clamp(0.82rem, 0.92vw, 0.88rem);
+  color: var(--text-secondary);
+  line-height: 1.48;
+}
+
+.thesis-action-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 4px;
+  flex-wrap: wrap;
+}
+
+.thesis-pdf-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #000000;
+  color: #ffffff;
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-decoration: none;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  transition: all 0.2s ease;
+}
+
+.thesis-pdf-btn:hover {
+  background: #333333;
+  transform: translateY(-2px);
+}
+
+.thesis-paper-link {
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: #444444;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.thesis-paper-link:hover {
+  color: #000000;
+  text-decoration: underline;
 }
 
 /* Stack Badges */
@@ -1334,11 +1534,11 @@ body.lang-jp {
 .m-tag {
   font-size: 0.75rem;
   font-weight: 700;
-  color: var(--text-secondary);
-  background: #f1f5f9;
+  color: #222222;
+  background: #f0f0f0;
   padding: 4px 10px;
   border-radius: 6px;
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  border: 1px solid #e0e0e0;
 }
 
 /* Transition Bridge Divider */
@@ -1362,6 +1562,183 @@ body.lang-jp {
   padding: 6px 16px;
   border-radius: var(--radius-pill);
   box-shadow: var(--shadow-subtle);
+}
+
+/* ==========================================================================
+   6B. RESEARCH & PUBLICATIONS SECTION (#publication)
+   ========================================================================== */
+.publications-section {
+  width: 100%;
+  padding-top: clamp(32px, 5vh, 60px);
+  margin-top: clamp(20px, 3vh, 40px);
+  position: relative;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.publications-bento-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: clamp(20px, 2.5vw, 32px);
+  margin-top: clamp(24px, 3.5vh, 40px);
+}
+
+.pub-bento-card {
+  background: #ffffff;
+  border-radius: 24px;
+  border: 1px solid rgba(0, 0, 0, 0.09);
+  padding: clamp(22px, 3vh, 32px) clamp(22px, 2.5vw, 34px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.pub-bento-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08);
+  border-color: rgba(0, 0, 0, 0.22);
+}
+
+.pub-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pub-badge-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.pub-journal-badge {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  background: #000000;
+  color: #ffffff;
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
+.pub-doi-badge {
+  font-size: 0.72rem;
+  font-family: var(--font-mono);
+  color: #555555;
+  background: #f0f0f0;
+  padding: 3px 8px;
+  border-radius: 6px;
+  border: 1px solid #e0e0e0;
+}
+
+.pub-peer-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #047857;
+  background: rgba(16, 185, 129, 0.1);
+  padding: 3px 9px;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.pub-title {
+  font-size: clamp(1.1rem, 1.4vw, 1.3rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text-pure-black);
+  line-height: 1.35;
+}
+
+.pub-authors {
+  font-size: 0.84rem;
+  color: #444444;
+  margin-top: -6px;
+}
+
+.pub-authors strong {
+  color: #000000;
+  font-weight: 800;
+}
+
+.pub-abstract {
+  font-size: clamp(0.85rem, 0.96vw, 0.92rem);
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+.pub-action-footer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: auto;
+  padding-top: 10px;
+  flex-wrap: wrap;
+}
+
+.pub-btn-doi {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #000000;
+  color: #ffffff;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-decoration: none;
+  padding: 7px 14px;
+  border-radius: var(--radius-pill);
+  transition: all 0.2s ease;
+}
+
+.pub-btn-doi:hover {
+  background: #333333;
+  transform: translateY(-2px);
+}
+
+.pub-btn-pdf {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #f0f0f0;
+  color: #111111;
+  border: 1px solid #dcdcdc;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-decoration: none;
+  padding: 7px 14px;
+  border-radius: var(--radius-pill);
+  transition: all 0.2s ease;
+}
+
+.pub-btn-pdf:hover {
+  background: #e4e4e4;
+  border-color: #000000;
+  transform: translateY(-2px);
+}
+
+.pub-btn-code {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #ffffff;
+  color: #111111;
+  border: 1px solid #dcdcdc;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-decoration: none;
+  padding: 7px 14px;
+  border-radius: var(--radius-pill);
+  transition: all 0.2s ease;
+}
+
+.pub-btn-code:hover {
+  background: #f7f7f7;
+  border-color: #000000;
+  transform: translateY(-2px);
 }
 
 /* ==========================================================================
@@ -1503,6 +1880,40 @@ body.lang-jp {
   .milestone-card {
     padding: 20px 16px;
     border-radius: 18px;
+  }
+
+  /* Responsive Publications */
+  .publications-section {
+    padding-top: 36px;
+  }
+
+  .publications-bento-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .pub-bento-card {
+    padding: 20px 18px;
+    border-radius: 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .thesis-spotlight-card {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px;
+  }
+
+  .thesis-cover-mockup {
+    width: 80px;
+    height: 112px;
+  }
+
+  .thesis-action-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
   }
 }
 

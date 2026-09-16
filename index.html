@@ -94,11 +94,11 @@
               <div class="fallback-glow"></div>
               <div class="fallback-silhouette">
                 <svg viewBox="0 0 200 240" class="silhouette-svg">
-                  <path d="M100 30 C75 30 55 50 55 78 C55 106 75 125 100 125 C125 125 145 106 145 78 C145 50 125 30 100 30 Z" fill="rgba(15, 23, 42, 0.45)" />
-                  <path d="M30 220 C30 160 65 145 100 145 C135 145 170 160 170 220 Z" fill="rgba(15, 23, 42, 0.45)" />
+                  <path d="M100 30 C75 30 55 50 55 78 C55 106 75 125 100 125 C125 125 145 106 145 78 C145 50 125 30 100 30 Z" fill="rgba(0, 0, 0, 0.35)" />
+                  <path d="M30 220 C30 160 65 145 100 145 C135 145 170 160 170 220 Z" fill="rgba(0, 0, 0, 0.35)" />
                 </svg>
                 <div class="photo-instruction-hint">
-                  <span>✦ Letakkan foto Anda di: <code>assets/profile.jpg</code></span>
+                  <span>Letakkan foto Anda di: <code>assets/profile.jpg</code></span>
                 </div>
               </div>
             </div>
@@ -141,7 +141,7 @@
                   
                   <!-- 1. English ATS Resume -->
                   <a href="assets/resume/resume-en.pdf" download="Faq_AI_Engineer_Resume_EN.pdf" class="resume-option-item" role="menuitem">
-                    <span class="doc-flag" aria-hidden="true">🇬🇧</span>
+                    <span class="doc-badge-mono">EN</span>
                     <div class="doc-info">
                       <div class="doc-name" data-i18n="resumeEnTitle">English ATS Resume</div>
                       <div class="doc-desc" data-i18n="resumeEnDesc">Standard 1-page international format (.pdf)</div>
@@ -153,7 +153,7 @@
 
                   <!-- 2. Rirekisho (履歴書) -->
                   <a href="assets/resume/rirekisho.pdf" download="Faq_Rirekisho_JP.pdf" class="resume-option-item" role="menuitem">
-                    <span class="doc-flag" aria-hidden="true">🇯🇵</span>
+                    <span class="doc-badge-mono">JP</span>
                     <div class="doc-info">
                       <div class="doc-name" data-i18n="resumeRirekishoTitle">履歴書 (Rirekisho)</div>
                       <div class="doc-desc" data-i18n="resumeRirekishoDesc">Standard Japanese Bio & Education (.pdf)</div>
@@ -165,7 +165,7 @@
 
                   <!-- 3. Shokumu Keirekisho (職務経歴書) -->
                   <a href="assets/resume/shokumu-keirekisho.pdf" download="Faq_Shokumu_Keirekisho_JP.pdf" class="resume-option-item" role="menuitem">
-                    <span class="doc-flag" aria-hidden="true">🇯🇵</span>
+                    <span class="doc-badge-mono">JP</span>
                     <div class="doc-info">
                       <div class="doc-name" data-i18n="resumeShokumuTitle">職務経歴書 (Shokumu Keirekisho)</div>
                       <div class="doc-desc" data-i18n="resumeShokumuDesc">Detailed AI projects & tech career history (.pdf)</div>
@@ -428,83 +428,87 @@
                ==================================================================== -->
           <div class="timeline-phase" id="experience">
             <div class="phase-badge">
-              <span class="phase-icon">💼</span>
+              <span class="phase-icon-mono">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+              </span>
               <span class="phase-title" data-i18n="phaseExperience">Experience</span>
-              <span class="phase-range">2023 — Present</span>
+              <span class="phase-range" data-i18n="expPhaseRange">2025 — Present</span>
             </div>
 
             <div class="timeline-milestones">
               
-              <!-- Milestone 1: Lead / Senior AI & LLM Engineer (Active) -->
+              <!-- Milestone 1: AI Engineer at Diskominfo Pasuruan (Active) -->
               <article class="timeline-item active-role">
                 <div class="milestone-marker">
                   <div class="marker-dot pulsing"></div>
                 </div>
                 <div class="milestone-card">
                   <div class="card-meta-row">
-                    <span class="role-badge active" data-i18n="exp1Status">Currently Working Here</span>
-                    <span class="date-stamp" data-i18n="exp1Date">Jan 2024 — Present</span>
+                    <span class="role-badge active" data-i18n="exp1Status">Currently Working Here (Active)</span>
+                    <span class="date-stamp" data-i18n="exp1Date">Jan 2026 — Present</span>
                   </div>
                   
-                  <h3 class="role-title" data-i18n="exp1Title">AI & LLM Systems Engineer</h3>
+                  <h3 class="role-title" data-i18n="exp1Title">AI Engineer</h3>
                   <div class="company-subline">
-                    <span class="company-name" data-i18n="exp1Company">Autonomous AI Labs</span>
-                    <span class="company-loc">• Tokyo / Remote</span>
+                    <span class="company-name" data-i18n="exp1Company">Dinas Komunikasi dan Informatika Kab. Pasuruan</span>
+                    <span class="company-loc" data-i18n="exp1Loc">• Pasuruan, Indonesia</span>
                   </div>
 
                   <p class="role-summary" data-i18n="exp1Summary">
-                    Merancang arsitektur agen AI otonom tingkat korporat, pipeline retrieval terdistribusi (RAG), serta optimasi inferensi throughput tinggi pada GPU cluster.
+                    Merancang dan membangun siklus penuh Kapas AI (ai.pasuruankab.go.id), platform AI multimodal tingkat pemerintahan berskala produksi, mulai dari provisioning bare-metal GPU server, Linux sysadmin, model serving, hingga frontend delivery.
                   </p>
 
                   <ul class="impact-bullets">
-                    <li data-i18n="exp1Bullet1">Merancang & mendeploy Multi-Hop Agentic RAG dengan hybrid dense-sparse retrieval (Qdrant & BM25), memangkas failure rate halusinasi sebesar 78%.</li>
-                    <li data-i18n="exp1Bullet2">Mengoptimasi cluster vLLM dengan PagedAttention & chunked prefill, melipatgandakan throughput pemrosesan 4.2x pada model LLM 70B.</li>
-                    <li data-i18n="exp1Bullet3">Melakukan fine-tuning QLoRA pada model open-weights untuk tugas penalaran khusus dengan dataset instruksi sintetik terkurasi.</li>
+                    <li data-i18n="exp1Bullet1">Mendeploy & mengoptimasi Qwen3.5-9B via vLLM dengan BitsAndBytes quantization, mempertahankan efisiensi 95% GPU memory utilization.</li>
+                    <li data-i18n="exp1Bullet2">Membangun Two-Stage Production RAG menggunakan Qdrant, BGE-M3 hybrid embeddings, dan BGE reranker dengan ekstraksi multi-dokumen (PDF/DOCX/TXT) serta sliding-window memory (8k context).</li>
+                    <li data-i18n="exp1Bullet3">Mengembangkan microservices FastAPI (Python 3.12) asinkron dengan real-time SSE streaming, OpenAI-compatible API gateway, forecasting pajak daerah (SARIMA), dan automated social media intelligence (Apify + Gemini + IndoBERT).</li>
                   </ul>
 
                   <div class="milestone-stack-tags">
                     <span class="m-tag">Python</span>
                     <span class="m-tag">vLLM</span>
-                    <span class="m-tag">PyTorch</span>
-                    <span class="m-tag">LangGraph</span>
+                    <span class="m-tag">Qwen 3.5</span>
+                    <span class="m-tag">FastAPI</span>
                     <span class="m-tag">Qdrant</span>
+                    <span class="m-tag">PostgreSQL</span>
                     <span class="m-tag">Docker</span>
+                    <span class="m-tag">PyTorch</span>
                   </div>
                 </div>
               </article>
 
-              <!-- Milestone 2: Machine Learning Researcher & Engineer -->
+              <!-- Milestone 2: Operational Excellence Intern at PT Ajinomoto Indonesia -->
               <article class="timeline-item">
                 <div class="milestone-marker">
                   <div class="marker-dot"></div>
                 </div>
                 <div class="milestone-card">
                   <div class="card-meta-row">
-                    <span class="role-badge" data-i18n="exp2Status">Contract / Project</span>
-                    <span class="date-stamp" data-i18n="exp2Date">2023 — 2024</span>
+                    <span class="role-badge" data-i18n="exp2Status">Corporate Internship</span>
+                    <span class="date-stamp" data-i18n="exp2Date">Jul 2025 — Aug 2025</span>
                   </div>
 
-                  <h3 class="role-title" data-i18n="exp2Title">Machine Learning Researcher & Engineer</h3>
+                  <h3 class="role-title" data-i18n="exp2Title">Operational Excellence Intern</h3>
                   <div class="company-subline">
-                    <span class="company-name" data-i18n="exp2Company">Cognitive Data Solutions</span>
-                    <span class="company-loc">• Jakarta, Indonesia</span>
+                    <span class="company-name" data-i18n="exp2Company">PT Ajinomoto Indonesia</span>
+                    <span class="company-loc" data-i18n="exp2Loc">• Mojokerto, Indonesia</span>
                   </div>
 
                   <p class="role-summary" data-i18n="exp2Summary">
-                    Riset dan implementasi model Vision-Language (VLM) untuk ekstraksi dokumen terstruktur dan klasifikasi representasi multimodal skala menengah.
+                    Mengumpulkan, mengonsolidasikan, dan menganalisis data operasional internal manufaktur untuk mendukung pelaporan manajemen dan efisiensi alur kerja operasional.
                   </p>
 
                   <ul class="impact-bullets">
-                    <li data-i18n="exp2Bullet1">Membangun pipeline ekstraksi informasi semi-otonom memproses 50.000+ lembar dokumen teknis per bulan dengan akurasi parsing 96.2%.</li>
-                    <li data-i18n="exp2Bullet2">Mengembangkan adapter LoRA khusus untuk segmentasi semantik teks multibahasa pada domain teknis.</li>
+                    <li data-i18n="exp2Bullet1">Mereduksi proses pelaporan manual dan berbasis kertas sebesar ~60% melalui inisiatif transformasi digital sistematis.</li>
+                    <li data-i18n="exp2Bullet2">Menyusun laporan analitik terstruktur dan ringkasan data berkala untuk memfasilitasi evaluasi kinerja manajemen eksekutif.</li>
                   </ul>
 
                   <div class="milestone-stack-tags">
-                    <span class="m-tag">Hugging Face</span>
-                    <span class="m-tag">FastAPI</span>
-                    <span class="m-tag">Transformers</span>
-                    <span class="m-tag">PostgreSQL</span>
-                    <span class="m-tag">CUDA</span>
+                    <span class="m-tag">Digital Transformation</span>
+                    <span class="m-tag">Operational Data</span>
+                    <span class="m-tag">Workflow Optimization</span>
+                    <span class="m-tag">Data Structuring</span>
+                    <span class="m-tag">Reporting</span>
                   </div>
                 </div>
               </article>
@@ -515,7 +519,7 @@
           <!-- Jembatan Transisi Menyambung (Seamless Transition Bridge) -->
           <div class="timeline-transition-bridge">
             <div class="bridge-indicator">
-              <span class="bridge-pill" data-i18n="transitionBridgeText">↓ Transition: Academic Foundation to Production Engineering</span>
+              <span class="bridge-pill" data-i18n="transitionBridgeText">↓ Transisi: Fondasi Akademis Ilmu Komputer & Riset ke Rekayasa AI Produksi</span>
             </div>
           </div>
 
@@ -524,79 +528,126 @@
                ==================================================================== -->
           <div class="timeline-phase" id="education">
             <div class="phase-badge edu-theme">
-              <span class="phase-icon">🎓</span>
+              <span class="phase-icon-mono">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+              </span>
               <span class="phase-title" data-i18n="phaseEducation">Education</span>
-              <span class="phase-range">2020 — 2024</span>
+              <span class="phase-range" data-i18n="eduPhaseRange">2022 — 2026</span>
             </div>
 
             <div class="timeline-milestones">
               
-              <!-- Milestone 3: Bachelor's Degree in Computer Science -->
+              <!-- Milestone 3: Bachelor's Degree in Computer Science at UIN Malang -->
               <article class="timeline-item">
                 <div class="milestone-marker">
                   <div class="marker-dot edu"></div>
                 </div>
                 <div class="milestone-card">
                   <div class="card-meta-row">
-                    <span class="role-badge edu" data-i18n="edu1Honor">Bachelor's Degree • Cum Laude</span>
-                    <span class="date-stamp">2020 — 2024</span>
+                    <span class="role-badge edu" data-i18n="edu1Honor">Bachelor's Degree • GPA 3.62 / 4.0</span>
+                    <span class="date-stamp" data-i18n="edu1Date">Aug 2022 — Dec 2025</span>
                   </div>
 
                   <h3 class="role-title" data-i18n="edu1Degree">Bachelor of Computer Science (S.Kom)</h3>
                   <div class="company-subline">
-                    <span class="company-name" data-i18n="edu1Institution">Universitas / Institute of Technology</span>
-                    <span class="company-loc">• Computer Science & AI</span>
+                    <span class="company-name" data-i18n="edu1Institution">UIN Maulana Malik Ibrahim Malang</span>
+                    <span class="company-loc" data-i18n="edu1Loc">• Malang, Indonesia</span>
                   </div>
 
-                  <!-- Academic Thesis Callout Box -->
-                  <div class="academic-thesis-card">
-                    <div class="thesis-label" data-i18n="edu1ThesisLabel">Undergraduate Research & Thesis:</div>
-                    <div class="thesis-topic" data-i18n="edu1ThesisTopic">
-                      "Implementasi Deep Learning & Sparse-Dense Hybrid Embeddings untuk Peningkatan Akurasi Semantic Information Retrieval pada Korpus Bahasa Indonesia"
+                  <!-- Bachelor's Thesis Spotlight Showcase Card -->
+                  <div class="thesis-spotlight-card">
+                    <div class="thesis-cover-mockup">
+                      <div class="thesis-doc-spine"></div>
+                      <div class="thesis-doc-sheet">
+                        <div class="thesis-doc-header">
+                          <span class="thesis-doc-uni">UIN MALANG</span>
+                          <span class="thesis-doc-year">2025</span>
+                        </div>
+                        <div class="thesis-doc-badge-center">SKRIPSI S.KOM</div>
+                        <div class="thesis-doc-sub">DEEP LEARNING & CV</div>
+                        <div class="thesis-doc-lines">
+                          <span></span><span></span><span></span>
+                        </div>
+                        <div class="thesis-doc-author">M. FAQIH</div>
+                      </div>
+                    </div>
+
+                    <div class="thesis-content-block">
+                      <div class="thesis-meta-pill">
+                        <span class="thesis-type-tag" data-i18n="thesisBadge">Bachelor's Capstone Thesis</span>
+                        <span class="thesis-status-dot"></span>
+                        <span class="thesis-grade-tag" data-i18n="thesisStatus">Defended • S.Kom</span>
+                      </div>
+
+                      <h4 class="thesis-main-title" data-i18n="thesisTitle">
+                        Segmentasi Zebra Cross yang Efisien dan Kuat di Bawah Cuaca Buruk Menggunakan DeepLabv3 Berbasis ConvNeXt
+                      </h4>
+
+                      <p class="thesis-summary-text" data-i18n="thesisDesc">
+                        Riset skripsi sarjana yang mengeksplorasi arsitektur ConvNeXt sebagai backbone ekstraksi fitur pada DeepLabv3+ untuk segmentasi semantik zebra cross yang tangguh di bawah kondisi cuaca ekstrem (hujan deras, kabut, dan minim cahaya).
+                      </p>
+
+                      <div class="thesis-action-row">
+                        <a href="assets/docs/skripsi-muhammad-faqih.pdf" target="_blank" rel="noopener noreferrer" class="thesis-pdf-btn">
+                          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                          <span data-i18n="thesisBtn">View Full Thesis (.pdf)</span>
+                        </a>
+                        <a href="#publication" class="thesis-paper-link">
+                          <span data-i18n="thesisPaperLink">Diterbitkan di Jurnal Ilmiah (JIKI) → Lihat Paper</span>
+                        </a>
+                      </div>
                     </div>
                   </div>
 
                   <ul class="impact-bullets">
-                    <li data-i18n="edu1Bullet1">Meraih IPK 3.8+ / predikat Cum Laude dengan fokus riset pada Natural Language Processing dan Deep Learning.</li>
-                    <li data-i18n="edu1Bullet2">Lulusan Bangkit Academy (Google, GoTo, Traveloka) Machine Learning Cohort dengan predikat Top Graduate (Distinction).</li>
-                    <li data-i18n="edu1Bullet3">Asisten Laboratorium Artificial Intelligence & Struktur Data algoritma.</li>
+                    <li data-i18n="edu1Bullet1">Meraih IPK 3.62 / 4.0 dengan penguasaan kuat pada Computer Vision, Deep Learning, Distributed Systems, Data Science, dan NLP.</li>
+                    <li data-i18n="edu1Bullet2">Vice President — Data Science Enthusiast Community (DSEC UIN Malang), memimpin workshop teknis ML dan komunitas mahasiswa (Sep 2024 — Jul 2025).</li>
+                    <li data-i18n="edu1Bullet3">Merancang platform End-to-End MLOps dengan DVC, MLflow tracking, dan FastAPI inference API (<600ms latency) untuk menghubungkan riset ke standar industri.</li>
                   </ul>
 
                   <div class="milestone-stack-tags">
+                    <span class="m-tag">Computer Vision</span>
                     <span class="m-tag">Deep Learning</span>
-                    <span class="m-tag">NLP</span>
-                    <span class="m-tag">Information Retrieval</span>
+                    <span class="m-tag">MLOps</span>
+                    <span class="m-tag">PyTorch</span>
+                    <span class="m-tag">Distributed Systems</span>
                     <span class="m-tag">Algorithms</span>
                   </div>
                 </div>
               </article>
 
-              <!-- Milestone 4: Advanced AI Certification & Fellowship -->
+              <!-- Milestone 4: Professional Certifications (Kominfo & Cloudeka MLOps) -->
               <article class="timeline-item">
                 <div class="milestone-marker">
                   <div class="marker-dot edu"></div>
                 </div>
                 <div class="milestone-card">
                   <div class="card-meta-row">
-                    <span class="role-badge verified" data-i18n="edu2Badge">Verified Specialization</span>
-                    <span class="date-stamp">2023</span>
+                    <span class="role-badge verified" data-i18n="edu2Badge">Verified Credentials</span>
+                    <span class="date-stamp" data-i18n="edu2Date">2024 — 2026</span>
                   </div>
 
-                  <h3 class="role-title" data-i18n="edu2Title">Deep Learning & LLM Systems Specialization</h3>
+                  <h3 class="role-title" data-i18n="edu2Title">Professional Certifications in Data Science & MLOps</h3>
                   <div class="company-subline">
-                    <span class="company-name">DeepLearning.AI / Stanford Online</span>
-                    <span class="company-loc">• Professional Credential</span>
+                    <span class="company-name" data-i18n="edu2Company">Kementerian Kominfo RI & Dicoding / Lintasarta</span>
+                    <span class="company-loc" data-i18n="edu2Loc">• National & Industry Credentials</span>
                   </div>
 
                   <p class="role-summary" data-i18n="edu2Desc">
-                    Penguasaan mendalam arsitektur Transformer, mekanisme self-attention, optimasi konvergensi gradien, distributed training, dan RLHF (Reinforcement Learning from Human Feedback).
+                    Sertifikasi kompetensi resmi yang memvalidasi keahlian praktis dalam analisis data tingkat lanjut serta operasionalisasi machine learning berskala industri (MLOps).
                   </p>
 
+                  <ul class="impact-bullets">
+                    <li data-i18n="edu2Cert1"><strong>Associate Data Scientist</strong> — Sertifikasi Kompetensi Nasional, Kementerian Komunikasi dan Informatika RI (Februari 2026).</li>
+                    <li data-i18n="edu2Cert2"><strong>Machine Learning Operations (MLOps) with Cloudeka</strong> — Dicoding Indonesia & Lintasarta Cloudeka (September 2024).</li>
+                  </ul>
+
                   <div class="milestone-stack-tags">
-                    <span class="m-tag">Transformers</span>
-                    <span class="m-tag">RLHF</span>
-                    <span class="m-tag">Distributed Training</span>
-                    <span class="m-tag">Attention Mechanisms</span>
+                    <span class="m-tag">Associate Data Scientist</span>
+                    <span class="m-tag">MLOps</span>
+                    <span class="m-tag">Kominfo RI</span>
+                    <span class="m-tag">Cloudeka</span>
+                    <span class="m-tag">MLflow</span>
                   </div>
                 </div>
               </article>
@@ -606,6 +657,120 @@
 
         </div>
 
+      </section>
+
+      <!-- ====================================================================
+           SECTION 3: RESEARCH & PUBLICATIONS (#publication)
+           ==================================================================== -->
+      <section class="publications-section" id="publication">
+        
+        <!-- Header Section -->
+        <div class="timeline-header-block">
+          <div class="timeline-eyebrow-pill" data-i18n="pubEyebrow">
+            Peer-Reviewed Scientific Research
+          </div>
+          <h2 class="timeline-main-heading" data-i18n="pubHeading">
+            Research & Publications
+          </h2>
+          <p class="timeline-subheading" data-i18n="pubSubheading">
+            Publikasi artikel ilmiah terindeks di jurnal nasional terakreditasi, berfokus pada arsitektur deep learning modern, computer vision tahan cuaca ekstrem, dan diagnostik citra medis.
+          </p>
+        </div>
+
+        <!-- Bento Grid 2 Kolom untuk Publikasi Paper -->
+        <div class="publications-bento-grid">
+          
+          <!-- Paper Card 1: Crosswalk Segmentation -->
+          <article class="pub-bento-card">
+            <div class="pub-card-top">
+              <div class="pub-badge-row">
+                <span class="pub-journal-badge">JIKI • Vol. 19 No. 2 (2026)</span>
+                <span class="pub-doi-badge">DOI: 10.21609/jiki.v19i2.1757</span>
+              </div>
+              <span class="pub-peer-label" data-i18n="pubPeerReviewed">Peer-Reviewed Paper</span>
+            </div>
+
+            <h3 class="pub-title">
+              Efficient and robust crosswalk segmentation under adverse weather using ConvNeXt-enhanced DeepLabv3
+            </h3>
+
+            <div class="pub-authors">
+              <strong>Muhammad Faqih</strong>, R. A. Rahman, K. F. H. Holle
+            </div>
+
+            <p class="pub-abstract" data-i18n="pub1Abstract">
+              Mengusulkan integrasi backbone ConvNeXt pada DeepLabv3+ untuk meningkatkan efisiensi komputasi dan ketahanan segmentasi semantik zebra cross pada kondisi jalanan ekstrem (hujan lebat, kabut tebal, dan pencahayaan rendah) untuk sistem persepsi autonomous driving.
+            </p>
+
+            <div class="milestone-stack-tags">
+              <span class="m-tag">DeepLabv3+</span>
+              <span class="m-tag">ConvNeXt</span>
+              <span class="m-tag">Semantic Segmentation</span>
+              <span class="m-tag">Computer Vision</span>
+              <span class="m-tag">Adverse Weather</span>
+              <span class="m-tag">PyTorch</span>
+            </div>
+
+            <div class="pub-action-footer">
+              <a href="http://dx.doi.org/10.21609/jiki.v19i2.1757" target="_blank" rel="noopener noreferrer" class="pub-btn-doi">
+                <span>DOI Article</span>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+              <a href="assets/docs/paper-crosswalk-jiki-2026.pdf" target="_blank" rel="noopener noreferrer" class="pub-btn-pdf">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                <span data-i18n="pubDownloadPdf">Read Paper (.pdf)</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Paper Card 2: Endoscopic GERD & Polyp Detection -->
+          <article class="pub-bento-card">
+            <div class="pub-card-top">
+              <div class="pub-badge-row">
+                <span class="pub-journal-badge">JIKI • Vol. 19 No. 2 (2026)</span>
+                <span class="pub-doi-badge">DOI: 10.21609/jiki.v19i2.1702</span>
+              </div>
+              <span class="pub-peer-label" data-i18n="pubPeerReviewed">Peer-Reviewed Paper</span>
+            </div>
+
+            <h3 class="pub-title">
+              A ConvNeXt-based deep learning framework for endoscopic image classification in GERD and polyp detection
+            </h3>
+
+            <div class="pub-authors">
+              <strong>Muhammad Faqih</strong>, O. Q. Aziz, A. Hanani
+            </div>
+
+            <p class="pub-abstract" data-i18n="pub2Abstract">
+              Merancang kerangka kerja deep learning berbasis transfer learning ConvNeXt untuk klasifikasi otomatis citra endoskopi gastrointestinal, membedakan GERD dan polip dengan 12 skenario eksperimen klinis komparatif berstandar diagnostik.
+            </p>
+
+            <div class="milestone-stack-tags">
+              <span class="m-tag">Medical AI</span>
+              <span class="m-tag">ConvNeXt</span>
+              <span class="m-tag">Endoscopic Vision</span>
+              <span class="m-tag">GERD & Polyp</span>
+              <span class="m-tag">Transfer Learning</span>
+              <span class="m-tag">MLOps</span>
+            </div>
+
+            <div class="pub-action-footer">
+              <a href="http://dx.doi.org/10.21609/jiki.v19i2.1702" target="_blank" rel="noopener noreferrer" class="pub-btn-doi">
+                <span>DOI Article</span>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+              <a href="assets/docs/paper-gerd-polyp-jiki-2026.pdf" target="_blank" rel="noopener noreferrer" class="pub-btn-pdf">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                <span data-i18n="pubDownloadPdf">Read Paper (.pdf)</span>
+              </a>
+              <a href="https://github.com/mxfaqih/gerdpolyp-mlops" target="_blank" rel="noopener noreferrer" class="pub-btn-code">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><path d="M13 6h3a2 2 0 0 1 2 2v7"/><line x1="6" y1="9" x2="6" y2="21"/></svg>
+                <span>Code Repo</span>
+              </a>
+            </div>
+          </article>
+
+        </div>
       </section>
 
     </div> <!-- /.site-main-flow -->
